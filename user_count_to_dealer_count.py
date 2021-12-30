@@ -13,7 +13,7 @@ def dealer_card_counter():
                     e = int(e)
                     dealer_total_count= dealer_total_count + e
                     dealer_total_count_str= str(dealer_total_count)
-                print ("Your count is:" + dealer_total_count_str)
+                print ("Dealers count is:" + dealer_total_count_str)
         elif e.find("♚") !=-1:
             dealer_cards_without_suits.append(10)
             if len(dealer_cards_with_suits) ==  len(dealer_cards_without_suits):   
@@ -21,7 +21,7 @@ def dealer_card_counter():
                     e = int(e)
                     dealer_total_count= dealer_total_count + e
                     dealer_total_count_str= str(dealer_total_count)
-                print ("Your count is:" + dealer_total_count_str)
+                print ("Dealers count is:" + dealer_total_count_str)
         elif e.find("J") !=-1:
             dealer_cards_without_suits.append(10)
             if len(dealer_cards_with_suits) ==  len(dealer_cards_without_suits):   
@@ -29,7 +29,7 @@ def dealer_card_counter():
                     e = int(e)
                     dealer_total_count= dealer_total_count + e
                     dealer_total_count_str= str(dealer_total_count)
-                print ("Your count is:" + dealer_total_count_str)
+                print ("Dealers count is:" + dealer_total_count_str)
         elif e.find("A") !=-1:
             dealer_cards_without_suits.append(1)
             if len(dealer_cards_with_suits) ==  len(dealer_cards_without_suits):   
@@ -37,7 +37,7 @@ def dealer_card_counter():
                     e = int(e)
                     dealer_total_count= dealer_total_count + e
                     dealer_total_count_str= str(dealer_total_count)
-                print ("Your count is:" + dealer_total_count_str)
+                print ("Dealers count is:" + dealer_total_count_str)
         elif e.find("♠️") != -1:
             spot= e.find("♠️")
             e = e[:spot]
@@ -47,7 +47,7 @@ def dealer_card_counter():
                     e = int(e)
                     dealer_total_count= dealer_total_count + e
                     dealer_total_count_str= str(dealer_total_count)
-                print ("Your count is:" + dealer_total_count_str)
+                print ("Dealers count is:" + dealer_total_count_str)
         elif e.find("♣️") != -1:
             spot= e.find("♣️")
             e = e[:spot]
@@ -57,7 +57,7 @@ def dealer_card_counter():
                     e = int(e)
                     dealer_total_count= dealer_total_count + e
                     dealer_total_count_str= str(dealer_total_count)
-                print ("Your count is:" + dealer_total_count_str)
+                print ("Dealers count is:" + dealer_total_count_str)
         elif e.find(RED + "♦️" + END) != -1:
             spot = e.find(RED + "♦️" + END)
             e = e[:spot]
@@ -67,7 +67,7 @@ def dealer_card_counter():
                     e = int(e)
                     dealer_total_count= dealer_total_count + e
                     dealer_total_count_str= str(dealer_total_count)
-                print ("Your count is:" + dealer_total_count_str)
+                print ("Dealers count is:" + dealer_total_count_str)
         elif e.find(RED + "♥️" + END) !=-1:
             spot = e.find(RED + "♥️" + END)
             e = e[:spot]
@@ -77,4 +77,4 @@ def dealer_card_counter():
                     e = int(e)
                     dealer_total_count= dealer_total_count + e
                     dealer_total_count_str= str(dealer_total_count)
-                print ("Your count is:" + dealer_total_count_str)
+                print ("Dealers count is:" + dealer_total_count_str)

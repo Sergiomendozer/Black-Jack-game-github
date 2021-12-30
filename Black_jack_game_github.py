@@ -11,6 +11,87 @@ END = '\033[0m'
 flipped_over_card = "🃩"
 ### needs  to take for than x, like the lists
 ########################make computer hit function#############################
+#list keeps track of dealers cards to later separate the suits from number to be able to count
+dealer_cards_with_suits = [] 
+dealer_cards_without_suits= [] 
+dealer_total_count = 0
+#function separates suit from card number then counts the numbers for dealer
+def dealer_card_counter():
+    dealer_total_count = 0
+    for e in dealer_cards_with_suits:
+        if e.find("♛") !=-1:
+            dealer_cards_without_suits.append(10)
+            if len(dealer_cards_with_suits) ==  len(dealer_cards_without_suits):   
+                for e in dealer_cards_without_suits:
+                    e = int(e)
+                    dealer_total_count= dealer_total_count + e
+                    dealer_total_count_str= str(dealer_total_count)
+                print ("Dealers count:" + dealer_total_count_str)
+        elif e.find("♚") !=-1:
+            dealer_cards_without_suits.append(10)
+            if len(dealer_cards_with_suits) ==  len(dealer_cards_without_suits):   
+                for e in dealer_cards_without_suits:
+                    e = int(e)
+                    dealer_total_count= dealer_total_count + e
+                    dealer_total_count_str= str(dealer_total_count)
+                print ("Dealers count:" + dealer_total_count_str)
+        elif e.find("J") !=-1:
+            dealer_cards_without_suits.append(10)
+            if len(dealer_cards_with_suits) ==  len(dealer_cards_without_suits):   
+                for e in dealer_cards_without_suits:
+                    e = int(e)
+                    dealer_total_count= dealer_total_count + e
+                    dealer_total_count_str= str(dealer_total_count)
+                print ("Dealers count:" + dealer_total_count_str)
+        elif e.find("A") !=-1:
+            dealer_cards_without_suits.append(1)
+            if len(dealer_cards_with_suits) ==  len(dealer_cards_without_suits):   
+                for e in dealer_cards_without_suits:
+                    e = int(e)
+                    dealer_total_count= dealer_total_count + e
+                    dealer_total_count_str= str(dealer_total_count)
+                print ("Dealers count:" + dealer_total_count_str)
+        elif e.find("♠️") != -1:
+            spot= e.find("♠️")
+            e = e[:spot]
+            dealer_cards_without_suits.append(e)
+            if len(dealer_cards_with_suits) ==  len(dealer_cards_without_suits):   
+                for e in dealer_cards_without_suits:
+                    e = int(e)
+                    dealer_total_count= dealer_total_count + e
+                    dealer_total_count_str= str(dealer_total_count)
+                print ("Dealers count:" + dealer_total_count_str)
+        elif e.find("♣️") != -1:
+            spot= e.find("♣️")
+            e = e[:spot]
+            dealer_cards_without_suits.append(e)
+            if len(dealer_cards_with_suits) ==  len(dealer_cards_without_suits):   
+                for e in dealer_cards_without_suits:
+                    e = int(e)
+                    dealer_total_count= dealer_total_count + e
+                    dealer_total_count_str= str(dealer_total_count)
+                print ("Dealers count:" + dealer_total_count_str)
+        elif e.find(RED + "♦️" + END) != -1:
+            spot = e.find(RED + "♦️" + END)
+            e = e[:spot]
+            dealer_cards_without_suits.append(e)
+            if len(dealer_cards_with_suits) ==  len(dealer_cards_without_suits):   
+                for e in dealer_cards_without_suits:
+                    e = int(e)
+                    dealer_total_count= dealer_total_count + e
+                    dealer_total_count_str= str(dealer_total_count)
+                print ("Dealers count:" + dealer_total_count_str)
+        elif e.find(RED + "♥️" + END) !=-1:
+            spot = e.find(RED + "♥️" + END)
+            e = e[:spot]
+            dealer_cards_without_suits.append(e)
+            if len(dealer_cards_with_suits) ==  len(dealer_cards_without_suits):   
+                for e in dealer_cards_without_suits:
+                    e = int(e)
+                    dealer_total_count= dealer_total_count + e
+                    dealer_total_count_str= str(dealer_total_count)
+                print ("Dealers count:" + dealer_total_count_str)
+
 
 #list keeps track of users cards to later separate the suits from number to be able to count 
 user_cards_with_suits = [] 
@@ -143,6 +224,8 @@ class color:
     playing_deck.pop(take_out_of_deck)
     #deals out first card to dealer
     chosen_card = str(chosen_card)
+    #adds card to list to be able to count card later
+    dealer_cards_with_suits.append(chosen_card)
     dealers_cards= dealers_cards + chosen_card
     dealers_cards_hidden = dealers_cards_hidden + chosen_card
 
@@ -162,6 +245,8 @@ class color:
     #to draw and take out card that is used, to avoid having the same cards being played
     playing_deck.pop(take_out_of_deck)
     chosen_card = str(chosen_card)
+    #adds card to list to be able to count card later
+    dealer_cards_with_suits.append(chosen_card)
     dealers_cards= dealers_cards + chosen_card
     dealers_cards_hidden = dealers_cards_hidden + flipped_over_card
 
@@ -180,14 +265,17 @@ class color:
     ##### to delete later##########
     # print (playing_deck)
     # print (full_deck_of_cards)
-    #print ("Your count is:" + user_total_count_str)
     print(user_cards_with_suits)
     print(user_cards_without_suits)
+    print(dealer_cards_with_suits)
+    print(dealer_cards_without_suits)
     ########################### above to delete later
     print ("Dealers Cards:" + dealers_cards) ###### delete later
     print ("Dealers Cards:" + dealers_cards_hidden)
+    (dealer_card_counter())
     print ("   Your Cards:" + users_cards)
     (card_counter())
+    ####(dealer_card_counter())
     # print ("Your card count:") ((card_counter())) maybe delete
     print (len(playing_deck)) ##### delete later
     x = str(input("Hit(H) or Stay(S):"))
