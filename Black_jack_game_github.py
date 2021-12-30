@@ -18,7 +18,7 @@ deals out second card to dealer
 deals out second card to player
 main prints
 """
-## get rid of lower than 21 text
+## add green text to would you like to play another game
 ## make sure each function has a return
 
 ### equals delete later
@@ -36,6 +36,7 @@ main prints
 import random
 #Variables
 RED='\033[31m'
+GREEN= '\033[1;32m'
 END = '\033[0m'
 flipped_over_card = "🃩"
 def start_playing(z):
@@ -212,14 +213,14 @@ def user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_car
 def did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
     if user_total_count <= 21:
         user_total_count_str= str(user_total_count)
-        print ("Your count is:" + user_total_count_str +  " its lower than 21")
+        print ("Your count is:" + user_total_count_str)
         x = str(input("Hit(H) or Stay(S):")) #### add add add to if below 21,add to bust function , user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x
         return hit_or_stay(user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
     elif user_total_count > 21:
         user_total_count= str(user_total_count)
         # #last = last +" Bust, you lose"
         print ("   Your count: "+ user_total_count +RED+" Bust, you lose"+ END)
-        z = (str(input("Would you like to play another game of BlackJack y or n: "))) 
+        z = (str(input(GREEN + "Would you like to play another game of BlackJack y or n: "+ END))) 
         return(start_playing(z))
         ### start next game start ################
 
