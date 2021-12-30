@@ -36,6 +36,7 @@ import random
 RED='\033[31m'
 END = '\033[0m'
 flipped_over_card = "🃩"
+
 #Variables for dealer count function
 dealer_cards_with_suits = [] 
 dealer_cards_without_suits= [] 
@@ -133,32 +134,28 @@ def user_card_counter():
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                    user_total_count_str= str(user_total_count)
-                print ("Your count is:" + user_total_count_str)
+                (did_user_bust(user_total_count))
         elif e.find("♚") !=-1:
             user_cards_without_suits.append(10)
             if len(user_cards_with_suits) ==  len(user_cards_without_suits):   
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                    user_total_count_str= str(user_total_count)
-                print ("Your count is:" + user_total_count_str)
+                (did_user_bust(user_total_count))
         elif e.find("J") !=-1:
             user_cards_without_suits.append(10)
             if len(user_cards_with_suits) ==  len(user_cards_without_suits):   
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                    user_total_count_str= str(user_total_count)
-                print ("Your count is:" + user_total_count_str)
+                (did_user_bust(user_total_count))
         elif e.find("A") !=-1:
             user_cards_without_suits.append(1)
             if len(user_cards_with_suits) ==  len(user_cards_without_suits):   
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                    user_total_count_str= str(user_total_count)
-                print ("Your count is:" + user_total_count_str)
+                (did_user_bust(user_total_count))
         elif e.find("♠️") != -1:
             spot= e.find("♠️")
             e = e[:spot]
@@ -167,8 +164,7 @@ def user_card_counter():
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                    user_total_count_str= str(user_total_count)
-                print ("Your count is:" + user_total_count_str)
+                (did_user_bust(user_total_count))
         elif e.find("♣️") != -1:
             spot= e.find("♣️")
             e = e[:spot]
@@ -177,8 +173,7 @@ def user_card_counter():
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                    user_total_count_str= str(user_total_count)
-                print ("Your count is:" + user_total_count_str)
+                (did_user_bust(user_total_count))
         elif e.find(RED + "♦️" + END) != -1:
             spot = e.find(RED + "♦️" + END)
             e = e[:spot]
@@ -187,8 +182,7 @@ def user_card_counter():
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                    user_total_count_str= str(user_total_count)
-                print ("Your count is:" + user_total_count_str)
+                (did_user_bust(user_total_count))
         elif e.find(RED + "♥️" + END) !=-1:
             spot = e.find(RED + "♥️" + END)
             e = e[:spot]
@@ -197,12 +191,21 @@ def user_card_counter():
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                    user_total_count_str= str(user_total_count)
-                print ("Your count is:" + user_total_count_str)
+                (did_user_bust(user_total_count))
+#Function that see's if user went over 21
+def did_user_bust(user_total_count):
+    if user_total_count> 21:
+        user_total_count_str= str(user_total_count)
+        print ("Your count is:" + user_total_count_str + RED + " Bust, you lose"+ END)
+        ### start next game start ################
+    else:
+        user_total_count_str= str(user_total_count)
+        print ("Your count is:" + user_total_count_str +  " its lower than 21")
 #function takes input of user to see if user wants to hit or stay
 def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x):###maybe add a R for recomendation like what the book sas to do
     if x == "s" or x == "S" or x == "Stay" or x == "Stay" :
         print("stay")
+        # take function dealer hits
     elif x == "H" or x == "h" or x == "Hit" or x == "hit":
         chosen_card= random.choice(playing_deck)
         take_out_of_deck = playing_deck.index(chosen_card)
@@ -216,7 +219,7 @@ def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playin
         print ("   Your Cards:" + users_cards)
         (user_card_counter())
         print (len(playing_deck)) ##### delete later
-        x = str(input("Hit(H) or Stay(S):"))
+        x = str(input("Hit(H) or Stay(S):")) #### add add add to if below 21
     
         hit_or_stay(user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
     else: 
