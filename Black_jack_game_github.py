@@ -223,9 +223,27 @@ def did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_d
         ## make a function can user hit again
 # function will act as dealer and in rules of Blackjack the dealer does not hit over 17 unless soft, soft is if there is an ace
 def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
-    #(dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
-    #print (dealer_card_counter_str)
-    print ("called")
+    dealer_total_count_str = (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+    dealer_total_count_int= int(dealer_total_count_str) 
+    print (GREEN + "Dealer is now playing" + END)
+    if dealer_total_count_int <= 50:
+        print("less")
+        print (dealer_total_count_int)
+        chosen_card= random.choice(playing_deck)
+        take_out_of_deck = playing_deck.index(chosen_card)
+        playing_deck.pop(take_out_of_deck)
+        chosen_card = str(chosen_card)
+        dealer_cards_with_suits.append(chosen_card)
+        dealers_cards= users_cards + chosen_card
+        print ("Dealers Cards:" + dealers_cards) ###### delete later
+        print ("Dealers Cards:" + dealers_cards_hidden)
+        dealer_total_count_str = (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+        print ("Dealers count:" + dealer_total_count_str)
+        print ("   Your Cards:" + users_cards)
+        print (len(playing_deck)) ##### delete later
+        return (does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+    else:
+        print("HIT 50")
 
 #function takes input of user to see if user wants to hit or stay
 def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x):###maybe add a R for recomendation like what the book sas to do
