@@ -46,7 +46,7 @@ dealer_cards_with_suits = []
 dealer_cards_without_suits= [] 
 dealer_total_count = 0
 #Function separates suit from card number then counts the numbers for dealer
-def dealer_card_counter():
+def dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
     dealer_cards_without_suits= []
     dealer_total_count = 0
     for e in dealer_cards_with_suits:
@@ -216,7 +216,18 @@ def did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_d
 #function takes input of user to see if user wants to hit or stay
 def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x):###maybe add a R for recomendation like what the book sas to do
     if x == "s" or x == "S" or x == "Stay" or x == "Stay" :
-        print("stay")
+        chosen_card= random.choice(playing_deck)
+        take_out_of_deck = playing_deck.index(chosen_card)
+        playing_deck.pop(take_out_of_deck)
+        chosen_card = str(chosen_card)
+        dealer_cards_with_suits.append(chosen_card)
+        dealers_cards= users_cards + chosen_card
+        print ("Dealers Cards:" + dealers_cards) ###### delete later
+        print ("Dealers Cards:" + dealers_cards_hidden)
+        (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+        print ("   Your Cards:" + users_cards)
+        print (len(playing_deck)) ##### delete later
+        #return (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         # take function dealer hits
     elif x == "H" or x == "h" or x == "Hit" or x == "hit":
         chosen_card= random.choice(playing_deck)
@@ -227,7 +238,7 @@ def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playin
         users_cards= users_cards + chosen_card
         print ("Dealers Cards:" + dealers_cards) ###### delete later
         print ("Dealers Cards:" + dealers_cards_hidden)
-        (dealer_card_counter())
+        (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         print ("   Your Cards:" + users_cards)
         print (len(playing_deck)) ##### delete later
         return (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
@@ -314,7 +325,7 @@ class color:
     #main prints
     print ("Dealers Cards:" + dealers_cards) ###### delete later
     print ("Dealers Cards:" + dealers_cards_hidden)
-    (dealer_card_counter())
+    (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     print ("   Your Cards:" + users_cards)
     (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     print (len(playing_deck)) ##### delete later
