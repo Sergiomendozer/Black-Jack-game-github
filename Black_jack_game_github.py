@@ -57,7 +57,8 @@ def dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_c
                     e = int(e)
                     dealer_total_count= dealer_total_count + e
                     dealer_total_count_str= str(dealer_total_count)
-                print ("Dealers count:" + dealer_total_count_str)
+                #print ("Dealers count:" + dealer_total_count_str)
+                return (dealer_total_count_str)
         elif e.find("♚") !=-1:
             dealer_cards_without_suits.append(10)
             if len(dealer_cards_with_suits) ==  len(dealer_cards_without_suits):   
@@ -65,7 +66,8 @@ def dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_c
                     e = int(e)
                     dealer_total_count= dealer_total_count + e
                     dealer_total_count_str= str(dealer_total_count)
-                print ("Dealers count:" + dealer_total_count_str)
+                #print ("Dealers count:" + dealer_total_count_str)
+                return (dealer_total_count_str)
         elif e.find("J") !=-1:
             dealer_cards_without_suits.append(10)
             if len(dealer_cards_with_suits) ==  len(dealer_cards_without_suits):   
@@ -73,7 +75,8 @@ def dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_c
                     e = int(e)
                     dealer_total_count= dealer_total_count + e
                     dealer_total_count_str= str(dealer_total_count)
-                print ("Dealers count:" + dealer_total_count_str)
+                #print ("Dealers count:" + dealer_total_count_str)
+                return (dealer_total_count_str)
         elif e.find("A") !=-1:
             dealer_cards_without_suits.append(1)
             if len(dealer_cards_with_suits) ==  len(dealer_cards_without_suits):   
@@ -81,7 +84,8 @@ def dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_c
                     e = int(e)
                     dealer_total_count= dealer_total_count + e
                     dealer_total_count_str= str(dealer_total_count)
-                print ("Dealers count:" + dealer_total_count_str)
+                #print ("Dealers count:" + dealer_total_count_str)
+                return (dealer_total_count_str)
         elif e.find("♠️") != -1:
             spot= e.find("♠️")
             e = e[:spot]
@@ -91,7 +95,8 @@ def dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_c
                     e = int(e)
                     dealer_total_count= dealer_total_count + e
                     dealer_total_count_str= str(dealer_total_count)
-                print ("Dealers count:" + dealer_total_count_str)
+                #print ("Dealers count:" + dealer_total_count_str)
+                return (dealer_total_count_str)
         elif e.find("♣️") != -1:
             spot= e.find("♣️")
             e = e[:spot]
@@ -101,7 +106,8 @@ def dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_c
                     e = int(e)
                     dealer_total_count= dealer_total_count + e
                     dealer_total_count_str= str(dealer_total_count)
-                print ("Dealers count:" + dealer_total_count_str)
+                #print ("Dealers count:" + dealer_total_count_str)
+                return (dealer_total_count_str)
         elif e.find(RED + "♦️" + END) != -1:
             spot = e.find(RED + "♦️" + END)
             e = e[:spot]
@@ -111,7 +117,8 @@ def dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_c
                     e = int(e)
                     dealer_total_count= dealer_total_count + e
                     dealer_total_count_str= str(dealer_total_count)
-                print ("Dealers count:" + dealer_total_count_str)
+                #print ("Dealers count:" + dealer_total_count_str)
+                return (dealer_total_count_str)
         elif e.find(RED + "♥️" + END) !=-1:
             spot = e.find(RED + "♥️" + END)
             e = e[:spot]
@@ -121,7 +128,9 @@ def dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_c
                     e = int(e)
                     dealer_total_count= dealer_total_count + e
                     dealer_total_count_str= str(dealer_total_count)
-                print ("Dealers count:" + dealer_total_count_str)
+                #print ("Dealers count:" + dealer_total_count_str)
+                return (dealer_total_count_str)
+
 
 #Variables for User count function
 #list keeps track of users cards to later separate the suits from number to be able to count 
@@ -208,26 +217,31 @@ def did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_d
         user_total_count= str(user_total_count)
         # #last = last +" Bust, you lose"
         print ("   Your count: "+ user_total_count +RED+" Bust, you lose"+ END)
-        z = (str(input(GREEN + "Would you like to keep playing y or n"+ END))) ## change to have no inout just keep play and say new game
+        z = (str(input(GREEN + "Would you like to keep playing y or n: "+ END))) ## change to have no inout just keep play and say new game
         return(start_playing(z))
-        ### start next game start ################
-
+        ### start next game start ###############
         ## make a function can user hit again
+# function will act as dealer and in rules of Blackjack the dealer does not hit over 17 unless soft, soft is if there is an ace
+def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
+    #(dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+    #print (dealer_card_counter_str)
+    print ("called")
+
 #function takes input of user to see if user wants to hit or stay
 def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x):###maybe add a R for recomendation like what the book sas to do
     if x == "s" or x == "S" or x == "Stay" or x == "Stay" :
-        chosen_card= random.choice(playing_deck)
-        take_out_of_deck = playing_deck.index(chosen_card)
-        playing_deck.pop(take_out_of_deck)
-        chosen_card = str(chosen_card)
-        dealer_cards_with_suits.append(chosen_card)
-        dealers_cards= users_cards + chosen_card
-        print ("Dealers Cards:" + dealers_cards) ###### delete later
-        print ("Dealers Cards:" + dealers_cards_hidden)
-        (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
-        print ("   Your Cards:" + users_cards)
-        print (len(playing_deck)) ##### delete later
-        #return (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+        return (does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+        # chosen_card= random.choice(playing_deck)
+        # take_out_of_deck = playing_deck.index(chosen_card)
+        # playing_deck.pop(take_out_of_deck)
+        # chosen_card = str(chosen_card)
+        # dealer_cards_with_suits.append(chosen_card)
+        # dealers_cards= users_cards + chosen_card
+        # print ("Dealers Cards:" + dealers_cards) ###### delete later
+        # print ("Dealers Cards:" + dealers_cards_hidden)
+        # (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+        # print ("   Your Cards:" + users_cards)
+        # print (len(playing_deck)) ##### delete later
         # take function dealer hits
     elif x == "H" or x == "h" or x == "Hit" or x == "hit":
         chosen_card= random.choice(playing_deck)
@@ -238,7 +252,8 @@ def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playin
         users_cards= users_cards + chosen_card
         print ("Dealers Cards:" + dealers_cards) ###### delete later
         print ("Dealers Cards:" + dealers_cards_hidden)
-        (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+        dealer_total_count_str = (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+        print ("Dealers count:" + dealer_total_count_str)
         print ("   Your Cards:" + users_cards)
         print (len(playing_deck)) ##### delete later
         return (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
@@ -325,7 +340,8 @@ class color:
     #main prints
     print ("Dealers Cards:" + dealers_cards) ###### delete later
     print ("Dealers Cards:" + dealers_cards_hidden)
-    (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+    dealer_total_count_str = (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+    print ("Dealers count:" + dealer_total_count_str)
     print ("   Your Cards:" + users_cards)
     (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     print (len(playing_deck)) ##### delete later
