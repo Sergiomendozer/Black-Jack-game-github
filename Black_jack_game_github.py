@@ -18,6 +18,7 @@ deals out second card to dealer
 deals out second card to player
 main prints
 """
+## how t have a delay in code for a sec###
 ## after person says stay dealer hits,dealer hit until 16 or less so < 17 
 #reshuffle when 75% of deck is gone so when length playing card < 13, 
 ## change z = (str(input(GREEN + "Would you like to keep playing y or n"+ END)))  to just say new game
@@ -34,6 +35,9 @@ import random
 #Variables
 RED='\033[31m'
 GREEN= '\033[1;32m'
+Purple="\033[0;35m"
+Cyan="\033[1;36m"
+Yellow="\033[0;33m"
 END = '\033[0m'
 flipped_over_card = "🃩"
 def start_playing(z):
@@ -225,9 +229,9 @@ def did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_d
 def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
     dealer_total_count_str = (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     dealer_total_count_int= int(dealer_total_count_str) 
-    print (GREEN + "Dealer is now playing" + END)
-    if dealer_total_count_int <= 50:
-        print("less")
+    print (Purple + "Dealer is now playing" + END)
+    if dealer_total_count_int <= 17:
+        print(Cyan+"Dealer hit"+END)
         print (dealer_total_count_int)
         chosen_card= random.choice(playing_deck)
         take_out_of_deck = playing_deck.index(chosen_card)
@@ -243,7 +247,8 @@ def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,pl
         print (len(playing_deck)) ##### delete later
         return (does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     else:
-        print("HIT 50")
+        print(Yellow + "Dealer Stays" + END)
+        #who won function
 
 #function takes input of user to see if user wants to hit or stay
 def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x):###maybe add a R for recomendation like what the book sas to do
