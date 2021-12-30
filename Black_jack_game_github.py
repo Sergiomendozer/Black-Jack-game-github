@@ -21,7 +21,7 @@ main prints
 
 ### equals delete later
 # make one time program to count dealer card not shown until user says stay
-#next make count function to be able to count when hit or stay for user
+#next make count function to be able to count when hit or stay for user first
 #next make count function to be able to count when hit or stay for dealer
 #deletes
 # make bust function
@@ -119,11 +119,12 @@ def dealer_card_counter():
 
 #Variables for User count function
 #list keeps track of users cards to later separate the suits from number to be able to count 
-user_cards_with_suits = [] 
-user_cards_without_suits= [] 
+user_cards_with_suits = []
+user_cards_without_suits = [] 
 user_total_count = 0
 #function separates suit from card number then counts the numbers for user
 def user_card_counter():
+    user_cards_without_suits = [] 
     user_total_count = 0
     for e in user_cards_with_suits:
         if e.find("♛") !=-1:
@@ -199,7 +200,7 @@ def user_card_counter():
                     user_total_count_str= str(user_total_count)
                 print ("Your count is:" + user_total_count_str)
 #function takes input of user to see if user wants to hit or stay
-def hit_or_stay(dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x):###maybe add a R for recomendation like what the book sas to do
+def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x):###maybe add a R for recomendation like what the book sas to do
     if x == "s" or x == "S" or x == "Stay" or x == "Stay" :
         print("stay")
     elif x == "H" or x == "h" or x == "Hit" or x == "hit":
@@ -207,16 +208,20 @@ def hit_or_stay(dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
         take_out_of_deck = playing_deck.index(chosen_card)
         playing_deck.pop(take_out_of_deck)
         chosen_card = str(chosen_card)
+        user_cards_with_suits.append(chosen_card)
         users_cards= users_cards + chosen_card
         print ("Dealers Cards:" + dealers_cards) ###### delete later
         print ("Dealers Cards:" + dealers_cards_hidden)
+        #(dealer_card_counter())
         print ("   Your Cards:" + users_cards)
+        (user_card_counter())
         print (len(playing_deck)) ##### delete later
         x = str(input("Hit(H) or Stay(S):"))
-        hit_or_stay(dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
+    
+        hit_or_stay(user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
     else: 
         y= input('\033[31m'+"You must enter H or S or Hit or Stay:"+'\033[0m')
-        hit_or_stay(dealers_cards, dealers_cards_hidden,playing_deck,users_cards,y)
+        hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards,y)
 
 #Variables w/ emojis and card symbols
 class color:
@@ -302,4 +307,4 @@ class color:
     (user_card_counter())
     print (len(playing_deck)) ##### delete later
     x = str(input("Hit(H) or Stay(S):"))
-    hit_or_stay(dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
+    hit_or_stay(user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
