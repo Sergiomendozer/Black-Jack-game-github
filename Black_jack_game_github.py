@@ -43,6 +43,7 @@ dealer_cards_without_suits= []
 dealer_total_count = 0
 #Function separates suit from card number then counts the numbers for dealer
 def dealer_card_counter():
+    dealer_cards_without_suits= []
     dealer_total_count = 0
     for e in dealer_cards_with_suits:
         if e.find("♛") !=-1:
@@ -215,11 +216,11 @@ def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playin
         users_cards= users_cards + chosen_card
         print ("Dealers Cards:" + dealers_cards) ###### delete later
         print ("Dealers Cards:" + dealers_cards_hidden)
-        #(dealer_card_counter())
+        (dealer_card_counter())
         print ("   Your Cards:" + users_cards)
         (user_card_counter())
         print (len(playing_deck)) ##### delete later
-        x = str(input("Hit(H) or Stay(S):")) #### add add add to if below 21
+        x = str(input("Hit(H) or Stay(S):")) #### add add add to if below 21,add to bust function , user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x
     
         hit_or_stay(user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
     else: 
