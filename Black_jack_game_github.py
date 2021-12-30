@@ -125,7 +125,7 @@ user_cards_with_suits = []
 user_cards_without_suits = [] 
 user_total_count = 0
 #function separates suit from card number then counts the numbers for user
-def user_card_counter():
+def user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
     user_cards_without_suits = [] 
     user_total_count = 0
     for e in user_cards_with_suits:
@@ -135,28 +135,28 @@ def user_card_counter():
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                (did_user_bust(user_total_count))
+                (did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         elif e.find("♚") !=-1:
             user_cards_without_suits.append(10)
             if len(user_cards_with_suits) ==  len(user_cards_without_suits):   
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                (did_user_bust(user_total_count))
+                (did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         elif e.find("J") !=-1:
             user_cards_without_suits.append(10)
             if len(user_cards_with_suits) ==  len(user_cards_without_suits):   
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                (did_user_bust(user_total_count))
+                (did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         elif e.find("A") !=-1:
             user_cards_without_suits.append(1)
             if len(user_cards_with_suits) ==  len(user_cards_without_suits):   
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                (did_user_bust(user_total_count))
+                (did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         elif e.find("♠️") != -1:
             spot= e.find("♠️")
             e = e[:spot]
@@ -165,7 +165,7 @@ def user_card_counter():
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                (did_user_bust(user_total_count))
+                (did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         elif e.find("♣️") != -1:
             spot= e.find("♣️")
             e = e[:spot]
@@ -174,7 +174,7 @@ def user_card_counter():
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                (did_user_bust(user_total_count))
+                (did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         elif e.find(RED + "♦️" + END) != -1:
             spot = e.find(RED + "♦️" + END)
             e = e[:spot]
@@ -183,7 +183,7 @@ def user_card_counter():
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                (did_user_bust(user_total_count))
+                (did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         elif e.find(RED + "♥️" + END) !=-1:
             spot = e.find(RED + "♥️" + END)
             e = e[:spot]
@@ -192,16 +192,31 @@ def user_card_counter():
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                (did_user_bust(user_total_count))
+                (did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+# function that determines if user can hit again or select stay###############
+# def user_hit_again(user_total_count_str,dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
+#     user_total_count=int(user_total_count_str) 
+#     if user_total_count <= 21:
+#         x = str(input("Hit(H) or Stay(S):")) #### add add add to if below 21,add to bust function , user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x
+#         hit_or_stay(user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
+#     else: 
+#         print ("dealers turn to play")
+#######################
 #Function that see's if user went over 21
-def did_user_bust(user_total_count):
-    if user_total_count> 21:
-        user_total_count_str= str(user_total_count)
-        print ("Your count is:" + user_total_count_str + RED + " Bust, you lose"+ END)
-        ### start next game start ################
-    else:
+def did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
+    if user_total_count <= 21:
         user_total_count_str= str(user_total_count)
         print ("Your count is:" + user_total_count_str +  " its lower than 21")
+        x = str(input("Hit(H) or Stay(S):")) #### add add add to if below 21,add to bust function , user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x
+        hit_or_stay(user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
+    elif user_total_count > 21:
+        user_total_count_str= str(user_total_count)
+        print ("Your count is:" + user_total_count_str + RED + " Bust, you lose"+ END)
+        STOP
+        print ("Dealer plays now")
+        ### start next game start ################
+
+        ## make a function can user hit again
 #function takes input of user to see if user wants to hit or stay
 def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x):###maybe add a R for recomendation like what the book sas to do
     if x == "s" or x == "S" or x == "Stay" or x == "Stay" :
@@ -218,11 +233,13 @@ def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playin
         print ("Dealers Cards:" + dealers_cards_hidden)
         (dealer_card_counter())
         print ("   Your Cards:" + users_cards)
-        (user_card_counter())
+        (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         print (len(playing_deck)) ##### delete later
-        x = str(input("Hit(H) or Stay(S):")) #### add add add to if below 21,add to bust function , user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x
-    
-        hit_or_stay(user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
+        ########
+        # user_total_count=int(user_total_count_str) 
+        # if user_total_count <= 21:
+        #     x = str(input("Hit(H) or Stay(S):")) #### add add add to if below 21,add to bust function , user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x
+        #     hit_or_stay(user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
     else: 
         y= input('\033[31m'+"You must enter H or S or Hit or Stay:"+'\033[0m')
         hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards,y)
@@ -308,7 +325,7 @@ class color:
     print ("Dealers Cards:" + dealers_cards_hidden)
     (dealer_card_counter())
     print ("   Your Cards:" + users_cards)
-    (user_card_counter())
+    (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     print (len(playing_deck)) ##### delete later
-    x = str(input("Hit(H) or Stay(S):"))
-    hit_or_stay(user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
+    #x = str(input("Hit(H) or Stay(S):"))
+    #hit_or_stay(user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
