@@ -18,18 +18,15 @@ deals out second card to dealer
 deals out second card to player
 main prints
 """
-## add green text to would you like to play another game
-## make sure each function has a return
+## after person says stay dealer hits,dealer hit until 16 or less so < 17 
+#reshuffle when 75% of deck is gone so when length playing card < 13, 
+## change z = (str(input(GREEN + "Would you like to keep playing y or n"+ END)))  to just say new game
 
 ### equals delete later
 # make one time program to count dealer card not shown until user says stay
 #next make count function to be able to count when hit or stay for user first
 #next make count function to be able to count when hit or stay for dealer
-#deletes
-# make bust function
-#if over 21 say bust and stop 
-#reshuffle when 75% of deck is gone so when length playing card < 13, 
-#dealer hit until 16 or less so < 17 
+
 # unless its a soft 17 soft is when there is an ace which is 11 or 1
 # implement when ace is 11 or 1
 
@@ -200,15 +197,6 @@ def user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_car
                     e = int(e)
                     user_total_count= user_total_count + e
                 return (did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
-# function that determines if user can hit again or select stay###############
-# def user_hit_again(user_total_count_str,dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
-#     user_total_count=int(user_total_count_str) 
-#     if user_total_count <= 21:
-#         x = str(input("Hit(H) or Stay(S):")) #### add add add to if below 21,add to bust function , user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x
-#         hit_or_stay(user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
-#     else: 
-#         print ("dealers turn to play")
-#######################
 #Function that see's if user went over 21
 def did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
     if user_total_count <= 21:
@@ -220,7 +208,7 @@ def did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_d
         user_total_count= str(user_total_count)
         # #last = last +" Bust, you lose"
         print ("   Your count: "+ user_total_count +RED+" Bust, you lose"+ END)
-        z = (str(input(GREEN + "Would you like to play another game of BlackJack y or n: "+ END))) 
+        z = (str(input(GREEN + "Would you like to keep playing y or n"+ END))) ## change to have no inout just keep play and say new game
         return(start_playing(z))
         ### start next game start ################
 
@@ -243,12 +231,6 @@ def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playin
         print ("   Your Cards:" + users_cards)
         print (len(playing_deck)) ##### delete later
         return (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
-
-        ########
-        # user_total_count=int(user_total_count_str) 
-        # if user_total_count <= 21:
-        #     x = str(input("Hit(H) or Stay(S):")) #### add add add to if below 21,add to bust function , user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x
-        #     hit_or_stay(user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
     else: 
         y= input('\033[31m'+"You must enter H or S or Hit or Stay:"+'\033[0m')
         hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards,y)
@@ -324,10 +306,10 @@ class color:
     ##### to delete later##########
     # print (playing_deck)
     # print (full_deck_of_cards)
-    print(user_cards_with_suits)
-    print(user_cards_without_suits)
-    print(dealer_cards_with_suits)
-    print(dealer_cards_without_suits)
+    # print(user_cards_with_suits)
+    # print(user_cards_without_suits)
+    # print(dealer_cards_with_suits)
+    # print(dealer_cards_without_suits)
     ########################### above to delete later############
     #main prints
     print ("Dealers Cards:" + dealers_cards) ###### delete later
@@ -336,5 +318,4 @@ class color:
     print ("   Your Cards:" + users_cards)
     (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     print (len(playing_deck)) ##### delete later
-    #x = str(input("Hit(H) or Stay(S):"))
-    #hit_or_stay(user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
+    
