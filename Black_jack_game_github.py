@@ -238,7 +238,7 @@ def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,pl
         playing_deck.pop(take_out_of_deck)
         chosen_card = str(chosen_card)
         dealer_cards_with_suits.append(chosen_card)
-        dealers_cards= users_cards + chosen_card
+        dealers_cards= dealers_cards + chosen_card
         print ("Dealers Cards:" + dealers_cards) ###### delete later
         print ("Dealers Cards:" + dealers_cards_hidden)
         dealer_total_count_str = (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
