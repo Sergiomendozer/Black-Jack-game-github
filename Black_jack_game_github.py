@@ -38,6 +38,7 @@ GREEN= '\033[1;32m'
 Purple="\033[0;35m"
 Cyan="\033[1;36m"
 Yellow="\033[0;33m"
+BLUE ="\033[0;34m"
 END = '\033[0m'
 flipped_over_card = "🃩"
 def start_playing(z):
@@ -315,7 +316,7 @@ def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,pl
         if dealer_total_count > 21:
             print ("Dealer busted," + GREEN + "You win!" + END)
         elif dealer_total_count > user_total_count:
-            print("Dealer wins")
+            print(BLUE+"Dealer wins"+END)
         elif user_total_count > dealer_total_count:
             print (GREEN + "You win!" + END)
         elif user_total_count == dealer_total_count:
@@ -370,6 +371,9 @@ class color:
     Q = '♛'
     J= "Jack"
     A = "Ace"
+    def shuffle(full_deck_of_cards,playing_deck):
+        for e in full_deck_of_cards:
+            playing_deck.append(e)
     ###flipped_over_card = "🎚️" 
     ###flipped_over_card = "🃟"
     flipped_over_card = "🃩"
@@ -383,10 +387,13 @@ class color:
     full_deck_of_cards = [A+S, "2"+S, "3"+S, "4"+S, "5"+S, "6"+S, "7"+S, "8"+S, "9"+S, "10"+S, K+" "+S, Q+" "+S, J+S,A+C, "2"+C, "3"+C, "4"+C, "5"+C, "6"+C, "7"+C, "8"+C, "9"+C, "10"+C, K+" "+C, Q+" "+C, J+C,A+D, "2"+D, "3"+D, "4"+D, "5"+D, "6"+D, "7"+D, "8"+D, "9"+D, "10"+D, K+" "+D, Q+" "+D, J+D,A+H, "2"+H, "3"+H, "4"+H, "5"+H, "6"+H, "7"+H, "8"+H, "9"+H, "10"+H, K+" "+H, Q+" "+H, J+H]
     chosen_card= random.choice(full_deck_of_cards)
     #For loop acts as a reshuffle, and in takes every element from full deck of card but makes it to be able to draw or delete a card
-    for e in full_deck_of_cards:
-        playing_deck.append(e)
+
+    # for e in full_deck_of_cards:
+    #     playing_deck.append(e)
+    shuffle(full_deck_of_cards,playing_deck)
     take_out_of_deck = playing_deck.index(chosen_card)
     #to draw and take out card that is used, to avoid having the same cards being played
+
     playing_deck.pop(take_out_of_deck)
     #deals out first card to dealer
     chosen_card = str(chosen_card)
@@ -440,6 +447,7 @@ class color:
     dealer_total_count_str = (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     print ("Dealers count: " + dealer_total_count_str)
     print ("   Your Cards:" + users_cards)
+    print (len(playing_deck))
     (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
-    print (len(playing_deck)) ##### delete later
+    #print (len(playing_deck)) ##### delete later
     
