@@ -371,9 +371,10 @@ class color:
     Q = '♛'
     J= "Jack"
     A = "Ace"
-    def shuffle(full_deck_of_cards,playing_deck):
-        for e in full_deck_of_cards:
-            playing_deck.append(e)
+    def shuffle_reshuffle(full_deck_of_cards,playing_deck):
+        if len(playing_deck) < 51:
+            for e in full_deck_of_cards:
+                playing_deck.append(e)
     ###flipped_over_card = "🎚️" 
     ###flipped_over_card = "🃟"
     flipped_over_card = "🃩"
@@ -390,7 +391,7 @@ class color:
 
     # for e in full_deck_of_cards:
     #     playing_deck.append(e)
-    shuffle(full_deck_of_cards,playing_deck)
+    shuffle_reshuffle(full_deck_of_cards,playing_deck)
     take_out_of_deck = playing_deck.index(chosen_card)
     #to draw and take out card that is used, to avoid having the same cards being played
 
@@ -434,8 +435,8 @@ class color:
     users_cards= users_cards + chosen_card
 
     ##### to delete later##########
-    # print (playing_deck)
-    # print (full_deck_of_cards)
+    print (playing_deck)
+    print (full_deck_of_cards)
     # print(user_cards_with_suits)
     # print(user_cards_without_suits)
     # print(dealer_cards_with_suits)
