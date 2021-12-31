@@ -301,7 +301,6 @@ def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,pl
         dealers_cards= dealers_cards + chosen_card
         print ("Dealers Cards:" + dealers_cards) ###### delete later
         print ("Dealers Cards:" + dealers_cards_hidden)
-        dealer_total_count_str = (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         print ("Dealers count: " + dealer_total_count_str)
         print ("   Your Cards:" + users_cards)
         user_total_count_str=str(user_card_counter_2(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
@@ -310,9 +309,18 @@ def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,pl
         return (does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     else:
         print(Yellow + "Dealer Stays" + END)
-        dealer_total_count_str = (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
-        dealer_total_count = int(dealer_total_count_str)
-        print (dealer_total_count)
+        dealer_total_count = int(dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+        #dealer_total_count = int(dealer_total_count_str)
+        user_total_count =int(user_card_counter_2(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+        if dealer_total_count > 21:
+            print ("Dealer busted," + GREEN + "You win!" + END)
+        elif dealer_total_count > user_total_count:
+            print("Dealer wins")
+        elif user_total_count > dealer_total_count:
+            print (GREEN + "You win!" + END)
+        elif user_total_count == dealer_total_count:
+            print("You pushed")
+
         
 
 #function takes input of user to see if user wants to hit or stay
