@@ -128,7 +128,7 @@ def play_again(playing_deck):
     dealer_total_count_str = (dealer_card_counter(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     print ("Dealers count: " + dealer_total_count_str)
     print ("   Your Cards:" + users_cards)
-    print (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+    print (user_card_counter(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         
 
 #Variables for dealer count function
@@ -220,7 +220,7 @@ user_cards_with_suits = []
 user_cards_without_suits = [] 
 user_total_count = 0
 #function separates suit from card number then counts the numbers for user
-def user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
+def user_card_counter(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
     user_cards_without_suits = [] 
     user_total_count = 0
     for e in user_cards_with_suits:
@@ -438,8 +438,8 @@ def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playin
         dealer_total_count_str = (dealer_card_counter(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         print ("Dealers count: " + dealer_total_count_str)
         print ("   Your Cards:" + users_cards)
-        (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
-        return (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+        (user_card_counter(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+        return (user_card_counter(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     else: 
         y= input('\033[31m'+"You must enter H or S or Hit or Stay:"+'\033[0m')
         hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards,y)
@@ -465,6 +465,7 @@ class color:
     flipped_over_card = "🃩"
     #lists function is to act as the deck but take out the cards the players are using
     playing_deck = []
+
     #Strings below function are to show user dealer and user cards
     dealers_cards_hidden = " "
     dealers_cards= " "
@@ -530,5 +531,5 @@ class color:
     dealer_total_count_str = (dealer_card_counter(dealer_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     print ("Dealers count: " + dealer_total_count_str)
     print ("   Your Cards:" + users_cards)
-    (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+    (user_card_counter(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
 
