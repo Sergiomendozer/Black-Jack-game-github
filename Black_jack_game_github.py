@@ -39,11 +39,91 @@ Purple="\033[0;35m"
 Cyan="\033[1;36m"
 Yellow="\033[0;33m"
 BLUE ="\033[0;34m"
+PINK = "\033[1;31m"
 END = '\033[0m'
 flipped_over_card = "🃩"
-def start_playing(z):
-    if z == 'y':
-        print("okay")
+S = "♠️"
+C = "♣️"
+D = RED + "♦️" + END
+H = RED + "♥️" + END
+K = "♚"
+Q = '♛'
+J= "Jack"
+A = "Ace"
+def shuffle_reshuffle(full_deck_of_cards,playing_deck):
+        if len(playing_deck) < 51:
+            for e in full_deck_of_cards:
+                playing_deck.append(e)
+
+def play_again(playing_deck):
+    print(PINK +" A New Game has Started" + END)
+    #add a pause 
+    dealers_cards_hidden = " "
+    dealers_cards= " "
+    users_cards = " "
+    #the list is a regular full deck of cards
+    full_deck_of_cards = [A+S, "2"+S, "3"+S, "4"+S, "5"+S, "6"+S, "7"+S, "8"+S, "9"+S, "10"+S, K+" "+S, Q+" "+S, J+S,A+C, "2"+C, "3"+C, "4"+C, "5"+C, "6"+C, "7"+C, "8"+C, "9"+C, "10"+C, K+" "+C, Q+" "+C, J+C,A+D, "2"+D, "3"+D, "4"+D, "5"+D, "6"+D, "7"+D, "8"+D, "9"+D, "10"+D, K+" "+D, Q+" "+D, J+D,A+H, "2"+H, "3"+H, "4"+H, "5"+H, "6"+H, "7"+H, "8"+H, "9"+H, "10"+H, K+" "+H, Q+" "+H, J+H]
+    chosen_card= random.choice(full_deck_of_cards)
+    #shuffles if needs it
+    (shuffle_reshuffle(full_deck_of_cards,playing_deck))
+    #to draw and take out card that is used, to avoid having the same cards being played
+    take_out_of_deck = playing_deck.index(chosen_card)
+    playing_deck.pop(take_out_of_deck)
+    
+    #deals out first card to dealer
+    chosen_card = str(chosen_card)
+    #adds card to list to be able to count card later
+    dealer_cards_with_suits.append(chosen_card)
+    dealers_cards= dealers_cards + chosen_card
+    dealers_cards_hidden = dealers_cards_hidden + chosen_card
+
+    #deals out first card to player
+    chosen_card= random.choice(playing_deck)
+    take_out_of_deck = playing_deck.index(chosen_card)
+    #to draw and take out card that is used, to avoid having the same cards being played
+    playing_deck.pop(take_out_of_deck)
+    chosen_card = str(chosen_card)
+    #adds card to list to be able to count card later
+    user_cards_with_suits.append(chosen_card)
+    users_cards= users_cards + chosen_card
+
+    #deals out second card to dealer
+    chosen_card= random.choice(playing_deck)
+    take_out_of_deck = playing_deck.index(chosen_card)
+    #to draw and take out card that is used, to avoid having the same cards being played
+    playing_deck.pop(take_out_of_deck)
+    chosen_card = str(chosen_card)
+    #adds card to list to be able to count card later
+    dealer_cards_with_suits.append(chosen_card)
+    dealers_cards= dealers_cards + chosen_card
+    dealers_cards_hidden = dealers_cards_hidden + flipped_over_card
+
+    #deals out second card to player
+    chosen_card= random.choice(playing_deck)
+    take_out_of_deck = playing_deck.index(chosen_card)
+    #to draw and take out card that is used, to avoid having the same cards being played
+    playing_deck.pop(take_out_of_deck)
+    chosen_card = str(chosen_card)
+    #adds card to list to be able to count card later
+    user_cards_with_suits.append(chosen_card)
+    users_cards= users_cards + chosen_card
+
+    ##### to delete later##########
+    # print (playing_deck)
+    # print (full_deck_of_cards)
+    # print(user_cards_with_suits)
+    # print(user_cards_without_suits)
+    # print(dealer_cards_with_suits)
+    # print(dealer_cards_without_suits)
+    ########################### above to delete later############
+    #main prints
+    print ("Dealers Cards:" + dealers_cards) ###### delete later
+    print ("Dealers Cards:" + dealers_cards_hidden)
+    dealer_total_count_str = (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+    print ("Dealers count: " + dealer_total_count_str)
+    print ("   Your Cards:" + users_cards)
+    print (len(playing_deck)) ##### delete later
+    return (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         
 
 #Variables for dealer count function
@@ -282,8 +362,8 @@ def did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_d
         user_total_count= str(user_total_count)
         # #last = last +" Bust, you lose"
         print ("   Your count: "+ user_total_count +RED+" Bust, you lose"+ END)
-        z = (str(input(GREEN + "Would you like to keep playing y or n: "+ END))) ## change to have no inout just keep play and say new game
-        return(start_playing(z))
+        (play_again(playing_deck))
+        # add here
         ### start next game start ###############
         ## make a function can user hit again
 # function will act as dealer and in rules of Blackjack the dealer does not hit over 17 unless soft, soft is if there is an ace
@@ -314,13 +394,17 @@ def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,pl
         #dealer_total_count = int(dealer_total_count_str)
         user_total_count =int(user_card_counter_2(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         if dealer_total_count > 21:
-            print ("Dealer busted," + GREEN + "You win!" + END)
+            print ("Dealer busted," + GREEN + "You win!" + END) #add here
+            (play_again(playing_deck))
         elif dealer_total_count > user_total_count:
-            print(BLUE+"Dealer wins"+END)
+            print(BLUE+"Dealer wins"+END) #add here
+            (play_again(playing_deck))
         elif user_total_count > dealer_total_count:
-            print (GREEN + "You win!" + END)
+            print (GREEN + "You win!" + END) #add here
+            (play_again(playing_deck))
         elif user_total_count == dealer_total_count:
-            print("You pushed")
+            print("You pushed") #add here
+            (play_again(playing_deck))
 
         
 
@@ -371,10 +455,10 @@ class color:
     Q = '♛'
     J= "Jack"
     A = "Ace"
-    def shuffle_reshuffle(full_deck_of_cards,playing_deck):
-        if len(playing_deck) < 51:
-            for e in full_deck_of_cards:
-                playing_deck.append(e)
+    # def shuffle_reshuffle(full_deck_of_cards,playing_deck):
+    #     if len(playing_deck) < 51:
+    #         for e in full_deck_of_cards:
+    #             playing_deck.append(e)
     ###flipped_over_card = "🎚️" 
     ###flipped_over_card = "🃟"
     flipped_over_card = "🃩"
@@ -387,15 +471,12 @@ class color:
     #the list is a regular full deck of cards
     full_deck_of_cards = [A+S, "2"+S, "3"+S, "4"+S, "5"+S, "6"+S, "7"+S, "8"+S, "9"+S, "10"+S, K+" "+S, Q+" "+S, J+S,A+C, "2"+C, "3"+C, "4"+C, "5"+C, "6"+C, "7"+C, "8"+C, "9"+C, "10"+C, K+" "+C, Q+" "+C, J+C,A+D, "2"+D, "3"+D, "4"+D, "5"+D, "6"+D, "7"+D, "8"+D, "9"+D, "10"+D, K+" "+D, Q+" "+D, J+D,A+H, "2"+H, "3"+H, "4"+H, "5"+H, "6"+H, "7"+H, "8"+H, "9"+H, "10"+H, K+" "+H, Q+" "+H, J+H]
     chosen_card= random.choice(full_deck_of_cards)
-    #For loop acts as a reshuffle, and in takes every element from full deck of card but makes it to be able to draw or delete a card
-
-    # for e in full_deck_of_cards:
-    #     playing_deck.append(e)
+    #shuffles if needs it
     shuffle_reshuffle(full_deck_of_cards,playing_deck)
-    take_out_of_deck = playing_deck.index(chosen_card)
     #to draw and take out card that is used, to avoid having the same cards being played
-
+    take_out_of_deck = playing_deck.index(chosen_card)
     playing_deck.pop(take_out_of_deck)
+
     #deals out first card to dealer
     chosen_card = str(chosen_card)
     #adds card to list to be able to count card later
@@ -448,7 +529,6 @@ class color:
     dealer_total_count_str = (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     print ("Dealers count: " + dealer_total_count_str)
     print ("   Your Cards:" + users_cards)
-    print (len(playing_deck))
+    print (len(playing_deck)) ##### delete later
     (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
-    #print (len(playing_deck)) ##### delete later
-    
+
