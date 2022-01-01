@@ -212,14 +212,93 @@ def dealer_card_counter(dealer_cards_with_suits,dealers_cards, dealers_cards_hid
                 dealer_total_count_str= str(dealer_total_count)
                 return (dealer_total_count_str)
 
-
+dealer_cards_with_suits_hidden = [] 
+dealer_cards_without_suits_hidden= [] 
+dealer_total_count_hidden = 0
+#Function separates suit from card number then counts the numbers for dealer
+def dealer_card_counter_hidden(dealer_cards_with_suits_hidden,dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
+    dealer_cards_without_suits_hidden_hidden= []
+    dealer_total_count_hidden = 0
+    for e in dealer_cards_with_suits_hidden:
+        if e.find("♛") !=-1:
+            dealer_cards_without_suits_hidden.append(10)
+            if len(dealer_cards_without_suits_hidden) == 1:  
+                for e in dealer_cards_without_suits_hidden:
+                    e = int(e)
+                dealer_total_count_hidden= e
+                dealer_total_count_hiddenstr= str(dealer_total_count_hidden)
+                return (dealer_total_count_hiddenstr)
+        elif e.find("♚") !=-1:
+            dealer_cards_without_suits_hidden.append(10)
+            if len(dealer_cards_without_suits_hidden) == 1:     
+                for e in dealer_cards_without_suits_hidden:
+                    e = int(e)
+                dealer_total_count_hidden= e
+                dealer_total_count_hiddenstr= str(dealer_total_count_hidden)
+                return (dealer_total_count_hiddenstr)
+        elif e.find("J") !=-1:
+            dealer_cards_without_suits_hidden.append(10)
+            if len(dealer_cards_without_suits_hidden) == 1:    
+                for e in dealer_cards_without_suits_hidden:
+                    e = int(e)
+                dealer_total_count_hidden= e
+                dealer_total_count_hiddenstr= str(dealer_total_count_hidden)
+                return (dealer_total_count_hiddenstr)
+        elif e.find("A") !=-1:
+            dealer_cards_without_suits_hidden.append(1)
+            if len(dealer_cards_without_suits_hidden) == 1:   
+                for e in dealer_cards_without_suits_hidden:
+                    e = int(e)
+                dealer_total_count_hidden= e
+                dealer_total_count_hiddenstr= str(dealer_total_count_hidden)
+                return (dealer_total_count_hiddenstr)
+        elif e.find("♠️") != -1:
+            spot= e.find("♠️")
+            e = e[:spot]
+            dealer_cards_without_suits_hidden.append(e)
+            if len(dealer_cards_without_suits_hidden) == 1:    
+                for e in dealer_cards_without_suits_hidden:
+                    e = int(e)
+                dealer_total_count_hidden= e
+                dealer_total_count_hiddenstr= str(dealer_total_count_hidden)
+                return (dealer_total_count_hiddenstr)
+        elif e.find("♣️") != -1:
+            spot= e.find("♣️")
+            e = e[:spot]
+            dealer_cards_without_suits_hidden.append(e)
+            if len(dealer_cards_without_suits_hidden) == 1:   
+                for e in dealer_cards_without_suits_hidden:
+                    e = int(e)
+                dealer_total_count_hidden= e
+                dealer_total_count_hiddenstr= str(dealer_total_count_hidden)
+                return (dealer_total_count_hiddenstr)
+        elif e.find(RED + "♦️" + END) != -1:
+            spot = e.find(RED + "♦️" + END)
+            e = e[:spot]
+            dealer_cards_without_suits_hidden.append(e)
+            if len(dealer_cards_without_suits_hidden) == 1:    
+                for e in dealer_cards_without_suits_hidden:
+                    e = int(e)
+                dealer_total_count_hidden= e
+                dealer_total_count_hiddenstr= str(dealer_total_count_hidden)
+                return (dealer_total_count_hiddenstr)
+        elif e.find(RED + "♥️" + END) !=-1:
+            spot = e.find(RED + "♥️" + END)
+            e = e[:spot]
+            dealer_cards_without_suits_hidden.append(e)
+            if len(dealer_cards_without_suits_hidden) == 1:    
+                for e in dealer_cards_without_suits_hidden:
+                    e = int(e)
+                dealer_total_count_hidden= e
+                dealer_total_count_hiddenstr= str(dealer_total_count_hidden)
+                return (dealer_total_count_hiddenstr)
 #Variables for User count function
 #list keeps track of users cards to later separate the suits from number to be able to count 
 user_cards_with_suits = []
 user_cards_without_suits = [] 
 user_total_count = 0
 #function separates suit from card number then counts the numbers for user
-def user_card_counter(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
+def user_card_counter(dealer_cards_with_suits_hidden,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
     user_cards_without_suits = [] 
     user_total_count = 0
     for e in user_cards_with_suits:
@@ -411,7 +490,7 @@ def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,pl
         
 
 #function takes input of user to see if user wants to hit or stay
-def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x):###maybe add a R for recomendation like what the book sas to do
+def hit_or_stay(dealer_total_count_hiddenstr,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x):###maybe add a R for recomendation like what the book sas to do
     if x == "s" or x == "S" or x == "Stay" or x == "Stay" :
         return (does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     elif x == "H" or x == "h" or x == "Hit" or x == "hit":
@@ -424,6 +503,7 @@ def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playin
         print ("Dealers Cards:" + dealers_cards_hidden)
         dealer_total_count_str = (dealer_card_counter(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         print ("Dealers count: " + dealer_total_count_str)
+        print ("Dealers count2: " + dealer_total_count_hiddenstr)
         print ("   Your Cards:" + users_cards)
         (user_card_counter(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         return (user_card_counter(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
@@ -457,6 +537,7 @@ class color:
     dealers_cards_hidden = " "
     dealers_cards= " "
     users_cards = " "
+    dealer_cards_with_suits_hidden = []
     #the list is a regular full deck of cards
     full_deck_of_cards = [A+S, "2"+S, "3"+S, "4"+S, "5"+S, "6"+S, "7"+S, "8"+S, "9"+S, "10"+S, K+" "+S, Q+" "+S, J+S,A+C, "2"+C, "3"+C, "4"+C, "5"+C, "6"+C, "7"+C, "8"+C, "9"+C, "10"+C, K+" "+C, Q+" "+C, J+C,A+D, "2"+D, "3"+D, "4"+D, "5"+D, "6"+D, "7"+D, "8"+D, "9"+D, "10"+D, K+" "+D, Q+" "+D, J+D,A+H, "2"+H, "3"+H, "4"+H, "5"+H, "6"+H, "7"+H, "8"+H, "9"+H, "10"+H, K+" "+H, Q+" "+H, J+H]
     chosen_card= random.choice(full_deck_of_cards)
@@ -470,6 +551,7 @@ class color:
     chosen_card = str(chosen_card)
     #adds card to list to be able to count card later
     dealer_cards_with_suits.append(chosen_card)
+    dealer_cards_with_suits_hidden.append(chosen_card)
     dealers_cards= dealers_cards + chosen_card
     dealers_cards_hidden = dealers_cards_hidden + chosen_card
 
@@ -515,7 +597,9 @@ class color:
     #main prints
     print ("Dealers Cards:" + dealers_cards_hidden)
     dealer_total_count_str = (dealer_card_counter(dealer_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
-    print ("Dealers count: " + dealer_total_count_str)
+    # print ("Dealers count: " + dealer_total_count_str)
+    dealer_total_count_hiddenstr = (dealer_card_counter_hidden(dealer_cards_with_suits_hidden,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+    print ("Dealers count: " + dealer_total_count_hiddenstr)
     print ("   Your Cards:" + users_cards)
-    (user_card_counter(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+    (user_card_counter(dealer_cards_with_suits_hidden,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
 
