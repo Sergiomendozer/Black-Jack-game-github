@@ -51,21 +51,27 @@ Q = '♛'
 J= "Jack"
 A = "Ace"
 def shuffle_reshuffle(full_deck_of_cards,playing_deck):
-        if len(playing_deck) < 51:
+        if len(playing_deck) < 13:
+            while len(playing_deck) != 0:
+                playing_deck.pop()
+            (playing_deck)
             for e in full_deck_of_cards:
                 playing_deck.append(e)
-
+            return (playing_deck)
+        else:
+            return (playing_deck)
 def play_again(playing_deck):
     print(PINK +" A New Game has Started" + END)
     #add a pause 
+    user_cards_with_suits = []
     dealers_cards_hidden = " "
     dealers_cards= " "
     users_cards = " "
     #the list is a regular full deck of cards
     full_deck_of_cards = [A+S, "2"+S, "3"+S, "4"+S, "5"+S, "6"+S, "7"+S, "8"+S, "9"+S, "10"+S, K+" "+S, Q+" "+S, J+S,A+C, "2"+C, "3"+C, "4"+C, "5"+C, "6"+C, "7"+C, "8"+C, "9"+C, "10"+C, K+" "+C, Q+" "+C, J+C,A+D, "2"+D, "3"+D, "4"+D, "5"+D, "6"+D, "7"+D, "8"+D, "9"+D, "10"+D, K+" "+D, Q+" "+D, J+D,A+H, "2"+H, "3"+H, "4"+H, "5"+H, "6"+H, "7"+H, "8"+H, "9"+H, "10"+H, K+" "+H, Q+" "+H, J+H]
-    chosen_card= random.choice(full_deck_of_cards)
     #shuffles if needs it
-    (shuffle_reshuffle(full_deck_of_cards,playing_deck))
+    playing_deck = (shuffle_reshuffle(full_deck_of_cards,playing_deck))
+    chosen_card = random.choice(playing_deck)
     #to draw and take out card that is used, to avoid having the same cards being played
     take_out_of_deck = playing_deck.index(chosen_card)
     playing_deck.pop(take_out_of_deck)
@@ -111,10 +117,7 @@ def play_again(playing_deck):
     ##### to delete later##########
     # print (playing_deck)
     # print (full_deck_of_cards)
-    # print(user_cards_with_suits)
-    # print(user_cards_without_suits)
-    # print(dealer_cards_with_suits)
-    # print(dealer_cards_without_suits)
+    # print(user_cards_with_suits
     ########################### above to delete later############
     #main prints
     print ("Dealers Cards:" + dealers_cards) ###### delete later
@@ -123,7 +126,7 @@ def play_again(playing_deck):
     print ("Dealers count: " + dealer_total_count_str)
     print ("   Your Cards:" + users_cards)
     print (len(playing_deck)) ##### delete later
-    return (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+    print (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         
 
 #Variables for dealer count function
@@ -516,8 +519,8 @@ class color:
     users_cards= users_cards + chosen_card
 
     ##### to delete later##########
-    print (playing_deck)
-    print (full_deck_of_cards)
+    # print (playing_deck)
+    # print (full_deck_of_cards)
     # print(user_cards_with_suits)
     # print(user_cards_without_suits)
     # print(dealer_cards_with_suits)
