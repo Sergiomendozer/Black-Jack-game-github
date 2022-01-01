@@ -51,12 +51,14 @@ Q = '♛'
 J= "Jack"
 A = "Ace"
 def shuffle_reshuffle(full_deck_of_cards,playing_deck):
+        cards_left_in_deck = str(len(playing_deck))
         if len(playing_deck) < 13:
             while len(playing_deck) != 0:
                 playing_deck.pop()
             (playing_deck)
             for e in full_deck_of_cards:
                 playing_deck.append(e)
+            print ("Cards have been shuffled since there were only "+ cards_left_in_deck + " left in the deck" )
             return (playing_deck)
         else:
             return (playing_deck)
@@ -64,6 +66,7 @@ def play_again(playing_deck):
     print(PINK +" A New Game has Started" + END)
     #add a pause 
     user_cards_with_suits = []
+    dealer_cards_with_suits = [] 
     dealers_cards_hidden = " "
     dealers_cards= " "
     users_cards = " "
@@ -125,7 +128,6 @@ def play_again(playing_deck):
     dealer_total_count_str = (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     print ("Dealers count: " + dealer_total_count_str)
     print ("   Your Cards:" + users_cards)
-    print (len(playing_deck)) ##### delete later
     print (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         
 
@@ -363,8 +365,7 @@ def did_user_bust(user_total_count,dealers_cards, dealers_cards_hidden,playing_d
         return hit_or_stay(user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
     elif user_total_count > 21:
         user_total_count= str(user_total_count)
-        # #last = last +" Bust, you lose"
-        print ("   Your count: "+ user_total_count +RED+" Bust, you lose"+ END)
+        print ("   Your count: "+ user_total_count +RED+" which is over 21 so you bust, you lost"+ END)
         (play_again(playing_deck))
         # add here
         ### start next game start ###############
@@ -389,7 +390,6 @@ def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,pl
         print ("   Your Cards:" + users_cards)
         user_total_count_str=str(user_card_counter_2(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         print ("Your count is: " + user_total_count_str)
-        print (len(playing_deck)) ##### delete later
         return (does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     else:
         print(Yellow + "Dealer Stays" + END)
@@ -425,7 +425,6 @@ def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playin
         # print ("Dealers Cards:" + dealers_cards_hidden)
         # (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         # print ("   Your Cards:" + users_cards)
-        # print (len(playing_deck)) ##### delete later
         # take function dealer hits
     elif x == "H" or x == "h" or x == "Hit" or x == "hit":
         chosen_card= random.choice(playing_deck)
@@ -440,7 +439,6 @@ def hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playin
         print ("Dealers count: " + dealer_total_count_str)
         print ("   Your Cards:" + users_cards)
         (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
-        print (len(playing_deck)) ##### delete later
         return (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     else: 
         y= input('\033[31m'+"You must enter H or S or Hit or Stay:"+'\033[0m')
@@ -532,6 +530,5 @@ class color:
     dealer_total_count_str = (dealer_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     print ("Dealers count: " + dealer_total_count_str)
     print ("   Your Cards:" + users_cards)
-    print (len(playing_deck)) ##### delete later
     (user_card_counter(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
 
