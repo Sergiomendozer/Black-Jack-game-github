@@ -77,6 +77,7 @@ def play_again(playing_deck):
     #adds card to list to be able to count card later
     dealer_cards_with_suits.append(chosen_card)
     dealer_cards_with_suits_hidden.append(chosen_card)
+    #name 'dealer_cards_with_suits_hidden' is not defined ######
     dealers_cards= dealers_cards + chosen_card
     dealers_cards_hidden = dealers_cards_hidden + chosen_card
 
@@ -119,7 +120,7 @@ def play_again(playing_deck):
     dealer_total_count_hiddenstr = (dealer_card_counter_hidden(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     print ("Dealers count: " + dealer_total_count_hiddenstr)
     print ("   Your Cards:" + users_cards)
-    print (user_card_counter(dealer_total_count_hiddenstr,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+    return (user_card_counter(dealer_total_count_hiddenstr,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         
 
 #Variables for dealer count function
@@ -293,6 +294,7 @@ user_total_count = 0
 def user_card_counter(dealer_total_count_hiddenstr,dealer_cards_with_suits_hidden,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
     user_cards_without_suits = [] 
     user_total_count = 0
+    print ("called")
     for e in user_cards_with_suits:
         if e.find("♛") !=-1:
             user_cards_without_suits.append(10)
