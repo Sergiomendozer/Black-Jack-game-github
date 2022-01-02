@@ -18,16 +18,6 @@ deals out second card to dealer
 deals out second card to player
 main prints
 """
-## how t have a delay in code for a sec###
-## after person says stay dealer hits,dealer hit until 16 or less so < 17 
-#reshuffle when 75% of deck is gone so when length playing card < 13, 
-## change z = (str(input(GREEN + "Would you like to keep playing y or n"+ END)))  to just say new game
-
-### equals delete later
-# make one time program to count dealer card not shown until user says stay
-#next make count function to be able to count when hit or stay for user first
-#next make count function to be able to count when hit or stay for dealer
-
 # unless its a soft 17 soft is when there is an ace which is 11 or 1
 # implement when ace is 11 or 1
 
@@ -445,9 +435,7 @@ def did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, d
         user_total_count= str(user_total_count)
         print ("   Your count: "+ user_total_count +RED+" which is over 21 so you bust, you lost"+ END)
         (play_again(playing_deck))
-        # add here
-        ### start next game start ###############
-        ## make a function can user hit again
+
 # function will act as dealer and in rules of Blackjack the dealer does not hit over 17 unless soft, soft is if there is an ace
 def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
     dealer_total_count_str = (dealer_card_counter(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
@@ -586,14 +574,6 @@ class color:
     user_cards_with_suits.append(chosen_card)
     users_cards= users_cards + chosen_card
 
-    ##### to delete later##########
-    # print (playing_deck)
-    # print (full_deck_of_cards)
-    # print(user_cards_with_suits)
-    # print(user_cards_without_suits)
-    # print(dealer_cards_with_suits)
-    # print(dealer_cards_without_suits)
-    ########################### above to delete later############
     #main prints
     print ("Dealers Cards:" + dealers_cards_hidden)
     dealer_total_count_str = (dealer_card_counter(dealer_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
