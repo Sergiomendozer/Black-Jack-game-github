@@ -116,7 +116,7 @@ def play_again(playing_deck):
     dealer_total_count_str = (dealer_card_counter(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     #print ("Dealers count: " + dealer_total_count_str)
     # print (dealer_cards_with_suits_hidden)
-    dealer_total_count_hiddenstr = str(dealer_card_counter_hidden(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+    dealer_total_count_hiddenstr = (dealer_card_counter_hidden(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     print ("Dealers count: " + dealer_total_count_hiddenstr)
     print ("   Your Cards:" + users_cards)
     print (user_card_counter(dealer_total_count_hiddenstr,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
