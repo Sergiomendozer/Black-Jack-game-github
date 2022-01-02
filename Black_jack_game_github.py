@@ -20,6 +20,8 @@ main prints
 """
 # unless its a soft 17 soft is when there is an ace which is 11 or 1
 # implement when ace is 11 or 1
+# look at git hub code to find out how print (user_card_counter(dealer_total_count_hiddenstr,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+# add a pause between certain actions
 
 import random
 #Variables
