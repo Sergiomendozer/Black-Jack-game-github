@@ -1,23 +1,3 @@
-"""
-Table of contents
-Variables
-Variables for dealer count function
-Function dealer_card_counter
-Variables for User count function
-Function user_card_counter
-Function hit_or_stay
-class color
-Variables w/ emojis and card symbols
-Lists function is to act as the deck but take out the cards the players are using
-Strings below function are to show user dealer and user cards
-List is a regular full deck of cards
-For loop acts as a reshuffle, and in takes every element from full deck of card but makes it to be able to draw or delete a card
-deals out first card to dealer
-deals out first card to player
-deals out second card to dealer
-deals out second card to player
-main prints
-"""
 # unless its a soft 17 soft is when there is an ace which is 11 or 1
 # implement when ace is 11 or 1
 # look at git hub code to find out how print (user_card_counter(dealer_total_count_hiddenstr,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
