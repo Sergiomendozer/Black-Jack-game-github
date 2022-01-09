@@ -100,8 +100,10 @@ def play_again(playing_deck):
     dealer_total_count_hiddenstr = (dealer_card_counter_hidden(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     print ("Dealers count: " + dealer_total_count_hiddenstr)
     print ("   Your Cards:" + users_cards)
-    return (user_card_counter(dealer_total_count_hiddenstr,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
-    #user_card_counter() missing 1 required positional argument: 'users_cards'######
+    return (user_card_counter(dealer_total_count_hiddenstr,dealer_cards_with_suits_hidden,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+    ####below is bugged and old code
+    ####return (user_card_counter(dealer_total_count_hiddenstr,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+    ###user_card_counter() missing 1 required positional argument: 'users_cards'######
 
 #Variables for dealer count function
 dealer_cards_with_suits = [] 
