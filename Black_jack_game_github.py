@@ -3,6 +3,7 @@
 # look at git hub code to find out how print (user_card_counter(dealer_total_count_hiddenstr,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
 # add a pause between certain actions
 # instead of just hit or stay add a recommend
+#dealer stays print count and cards
 import random
 #Variables
 RED='\033[31m'
@@ -433,7 +434,7 @@ def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,pl
         chosen_card = str(chosen_card)
         dealer_cards_with_suits.append(chosen_card)
         dealers_cards= dealers_cards + chosen_card
-        print ("Dealers Cards:" + dealers_cards) ###### delete later
+        print ("Dealers Cards:" + dealers_cards)
         dealer_total_count_str = (dealer_card_counter(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         print ("Dealers count: " + dealer_total_count_str)
         print ("   Your Cards:" + users_cards)
@@ -442,6 +443,7 @@ def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,pl
         return (does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     else:
         print(Yellow + "Dealer Stays" + END)
+        print ("Dealers Cards:" + dealers_cards)
         dealer_total_count = int(dealer_card_counter(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         user_total_count =int(user_card_counter_2(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         if dealer_total_count > 21:
@@ -449,9 +451,11 @@ def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,pl
             print ("Dealer busted," + GREEN + "You win!" + END) 
             (play_again(playing_deck))
         elif dealer_total_count > user_total_count:
+            print ("Dealers count: " + dealer_total_count_str)
             print(BLUE+"Dealer wins"+END)
             (play_again(playing_deck))
         elif user_total_count > dealer_total_count:
+            print ("Dealers count: " + dealer_total_count_str)
             print (GREEN + "You win!" + END) 
             (play_again(playing_deck))
         elif user_total_count == dealer_total_count:
