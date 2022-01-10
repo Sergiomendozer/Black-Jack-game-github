@@ -11,3 +11,5 @@ if str_to_find_ace.find("11") != -1:
 else:
     is_there_an_ace = "NO"
     print (is_there_an_ace)
+
+# return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards,user_cards_with_suits,is_there_an_ace))
