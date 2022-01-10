@@ -1,6 +1,4 @@
-# unless its a soft 17 soft is when there is an ace which is 11 or 1
 # implement when ace is 11 or 1
-# instead of just hit or stay add a recommend
 import time
 import random
 #Variables
