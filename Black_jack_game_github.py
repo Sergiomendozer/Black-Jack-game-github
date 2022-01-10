@@ -2,7 +2,7 @@
 # implement when ace is 11 or 1
 # add a pause between certain actions
 # instead of just hit or stay add a recommend
-
+import time
 import random
 #Variables
 RED='\033[31m'
@@ -37,7 +37,9 @@ def shuffle_reshuffle(full_deck_of_cards,playing_deck):
             return (playing_deck)
 #functions loops game and is able to reset game
 def play_again(playing_deck):
+    time.sleep(1) 
     print(PINK +" A New Game has Started" + END)
+    time.sleep(2) 
     #add a pause 
     #empty list and string reset games varables
     user_cards_with_suits = []
@@ -101,6 +103,7 @@ def play_again(playing_deck):
     # print (dealer_cards_with_suits_hidden)
     dealer_total_count_hiddenstr = (dealer_card_counter_hidden(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     print ("Dealers count: " + dealer_total_count_hiddenstr)
+    time.sleep(1) 
     print ("   Your Cards:" + users_cards)
     return (user_card_counter(dealer_total_count_hiddenstr,dealer_cards_with_suits_hidden,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     
@@ -413,6 +416,7 @@ def did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, d
     if user_total_count <= 21:
         user_total_count_str= str(user_total_count)
         print ("Your count is: " + user_total_count_str)
+        time.sleep(1) 
         x = str(input("Hit(H) or Stay(S):"))
         return hit_or_stay(dealer_total_count_hiddenstr,user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
     elif user_total_count > 21:
@@ -425,8 +429,10 @@ def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,pl
     dealer_total_count_str = (dealer_card_counter(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     dealer_total_count_int= int(dealer_total_count_str) 
     print (Purple + "Dealer is now playing" + END)
+    time.sleep(4) 
     if dealer_total_count_int <= 17:
         print(Cyan+"Dealer hit"+END)
+        time.sleep(2) 
         chosen_card= random.choice(playing_deck)
         take_out_of_deck = playing_deck.index(chosen_card)
         playing_deck.pop(take_out_of_deck)
@@ -442,19 +448,23 @@ def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,pl
         return (does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     else:
         print(Yellow + "Dealer Stays" + END)
+        time.sleep(1) 
         print ("Dealers Cards:" + dealers_cards)
         dealer_total_count = int(dealer_card_counter(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         user_total_count =int(user_card_counter_2(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         if dealer_total_count > 21:
             print ("Dealers count: " + dealer_total_count_str)
+            time.sleep(1) 
             print ("Dealer busted," + GREEN + "You win!" + END) 
             (play_again(playing_deck))
         elif dealer_total_count > user_total_count:
             print ("Dealers count: " + dealer_total_count_str)
+            time.sleep(1) 
             print(BLUE+"Dealer wins"+END)
             (play_again(playing_deck))
         elif user_total_count > dealer_total_count:
             print ("Dealers count: " + dealer_total_count_str)
+            time.sleep(1) 
             print (GREEN + "You win!" + END) 
             (play_again(playing_deck))
         elif user_total_count == dealer_total_count:
@@ -555,6 +565,7 @@ class color:
     # print ("Dealers count: " + dealer_total_count_str)
     dealer_total_count_hiddenstr = (dealer_card_counter_hidden(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     print ("Dealers count: " + dealer_total_count_hiddenstr)
+    time.sleep(1) 
     print ("   Your Cards:" + users_cards)
     (user_card_counter(dealer_total_count_hiddenstr,dealer_cards_with_suits_hidden,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
 
