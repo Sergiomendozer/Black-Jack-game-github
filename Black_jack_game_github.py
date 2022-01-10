@@ -1,6 +1,5 @@
 # unless its a soft 17 soft is when there is an ace which is 11 or 1
 # implement when ace is 11 or 1
-# add a pause between certain actions
 # instead of just hit or stay add a recommend
 import time
 import random
@@ -285,28 +284,28 @@ def user_card_counter(dealer_total_count_hiddenstr,dealer_cards_with_suits_hidde
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+                return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards,user_cards_with_suits))
         elif e.find("♚") !=-1:
             user_cards_without_suits.append(10)
             if len(user_cards_with_suits) ==  len(user_cards_without_suits):   
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+                return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards,user_cards_with_suits))
         elif e.find("J") !=-1:
             user_cards_without_suits.append(10)
             if len(user_cards_with_suits) ==  len(user_cards_without_suits):   
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+                return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards,user_cards_with_suits))
         elif e.find("A") !=-1:
             user_cards_without_suits.append(1)
             if len(user_cards_with_suits) ==  len(user_cards_without_suits):   
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+                return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards,user_cards_with_suits))
         elif e.find("♠️") != -1:
             spot= e.find("♠️")
             e = e[:spot]
@@ -315,7 +314,7 @@ def user_card_counter(dealer_total_count_hiddenstr,dealer_cards_with_suits_hidde
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+                return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards,user_cards_with_suits))
         elif e.find("♣️") != -1:
             spot= e.find("♣️")
             e = e[:spot]
@@ -324,7 +323,7 @@ def user_card_counter(dealer_total_count_hiddenstr,dealer_cards_with_suits_hidde
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+                return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards,user_cards_with_suits))
         elif e.find(RED + "♦️" + END) != -1:
             spot = e.find(RED + "♦️" + END)
             e = e[:spot]
@@ -333,7 +332,7 @@ def user_card_counter(dealer_total_count_hiddenstr,dealer_cards_with_suits_hidde
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+                return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards,user_cards_with_suits))
         elif e.find(RED + "♥️" + END) !=-1:
             spot = e.find(RED + "♥️" + END)
             e = e[:spot]
@@ -342,7 +341,7 @@ def user_card_counter(dealer_total_count_hiddenstr,dealer_cards_with_suits_hidde
                 for e in user_cards_without_suits:
                     e = int(e)
                     user_total_count= user_total_count + e
-                return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
+                return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards,user_cards_with_suits))
 def user_card_counter_2(dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
     user_cards_without_suits = [] 
     user_total_count = 0
@@ -412,7 +411,7 @@ def user_card_counter_2(dealers_cards, dealers_cards_hidden,playing_deck,users_c
                     user_total_count= user_total_count + e
                 return (user_total_count)
 #Function that see's if user went over 21
-def did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
+def did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards,user_cards_with_suits):
     if user_total_count <= 21:
         user_total_count_str= str(user_total_count)
         print ("Your count is: " + user_total_count_str)
@@ -420,7 +419,7 @@ def did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, d
         x = str(input("Hit(H) or Stay(S):"))
         return hit_or_stay(dealer_total_count_hiddenstr,user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
     elif user_total_count > 21:
-        user_total_count= str(user_total_count)
+        user_total_count= str(user_total_count) # needs to be recounted
         print ("   Your count: "+ user_total_count +RED+" which is over 21 so you bust, you lost"+ END)
         (play_again(playing_deck))
 
