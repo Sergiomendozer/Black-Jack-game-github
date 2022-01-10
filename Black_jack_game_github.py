@@ -2,7 +2,7 @@
 # implement when ace is 11 or 1
 # look at git hub code to find out how print (user_card_counter(dealer_total_count_hiddenstr,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
 # add a pause between certain actions
-
+# instead of just hit or stay add a recommend
 import random
 #Variables
 RED='\033[31m'
@@ -22,6 +22,7 @@ K = "♚"
 Q = '♛'
 J= "Jack"
 A = "Ace"
+#function "shuffles" deck if card count is bellow 13, all function does is add all cards back to deck
 def shuffle_reshuffle(full_deck_of_cards,playing_deck):
         cards_left_in_deck = str(len(playing_deck))
         if len(playing_deck) < 13:
@@ -34,9 +35,11 @@ def shuffle_reshuffle(full_deck_of_cards,playing_deck):
             return (playing_deck)
         else:
             return (playing_deck)
+#functions loops game and is able to reset game
 def play_again(playing_deck):
     print(PINK +" A New Game has Started" + END)
     #add a pause 
+    #empty list and string reset games varables
     user_cards_with_suits = []
     dealer_cards_with_suits = [] 
     dealer_cards_with_suits_hidden = []
@@ -57,7 +60,6 @@ def play_again(playing_deck):
     #adds card to list to be able to count card later
     dealer_cards_with_suits.append(chosen_card)
     dealer_cards_with_suits_hidden.append(chosen_card)
-    #name 'dealer_cards_with_suits_hidden' is not defined ######
     dealers_cards= dealers_cards + chosen_card
     dealers_cards_hidden = dealers_cards_hidden + chosen_card
 
@@ -185,7 +187,6 @@ def dealer_card_counter(dealer_cards_with_suits,dealers_cards, dealers_cards_hid
                 dealer_total_count_str= str(dealer_total_count)
                 return (dealer_total_count_str)
 
-# dealer_cards_with_suits_hidden = [] 
 dealer_cards_without_suits_hidden= [] 
 dealer_total_count_hidden = 0
 #Function separates suit from card number then counts the numbers for dealer
@@ -274,7 +275,6 @@ user_total_count = 0
 def user_card_counter(dealer_total_count_hiddenstr,dealer_cards_with_suits_hidden,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards):
     user_cards_without_suits = [] 
     user_total_count = 0
-    print ("called")
     for e in user_cards_with_suits:
         if e.find("♛") !=-1:
             user_cards_without_suits.append(10)
@@ -413,7 +413,7 @@ def did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, d
     if user_total_count <= 21:
         user_total_count_str= str(user_total_count)
         print ("Your count is: " + user_total_count_str)
-        x = str(input("Hit(H) or Stay(S):")) #### add add add to if below 21,add to bust function , user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x
+        x = str(input("Hit(H) or Stay(S):"))
         return hit_or_stay(dealer_total_count_hiddenstr,user_cards_with_suits, dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x)
     elif user_total_count > 21:
         user_total_count= str(user_total_count)
@@ -443,26 +443,23 @@ def does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,pl
     else:
         print(Yellow + "Dealer Stays" + END)
         dealer_total_count = int(dealer_card_counter(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
-        #dealer_total_count = int(dealer_total_count_str)
         user_total_count =int(user_card_counter_2(dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         if dealer_total_count > 21:
             print ("Dealers count: " + dealer_total_count_str)
-            print ("Dealer busted," + GREEN + "You win!" + END) #add here
+            print ("Dealer busted," + GREEN + "You win!" + END) 
             (play_again(playing_deck))
         elif dealer_total_count > user_total_count:
-            print(BLUE+"Dealer wins"+END) #add here
+            print(BLUE+"Dealer wins"+END)
             (play_again(playing_deck))
         elif user_total_count > dealer_total_count:
-            print (GREEN + "You win!" + END) #add here
+            print (GREEN + "You win!" + END) 
             (play_again(playing_deck))
         elif user_total_count == dealer_total_count:
-            print("You pushed") #add here
+            print("You pushed")
             (play_again(playing_deck))
 
-        
-
 #function takes input of user to see if user wants to hit or stay
-def hit_or_stay(dealer_total_count_hiddenstr,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x):###maybe add a R for recomendation like what the book sas to do
+def hit_or_stay(dealer_total_count_hiddenstr,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, x):
     if x == "s" or x == "S" or x == "Stay" or x == "Stay" :
         return (does_dealer_hit(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     elif x == "H" or x == "h" or x == "Hit" or x == "hit":
@@ -473,15 +470,12 @@ def hit_or_stay(dealer_total_count_hiddenstr,user_cards_with_suits,dealers_cards
         user_cards_with_suits.append(chosen_card)
         users_cards= users_cards + chosen_card
         print ("Dealers Cards:" + dealers_cards_hidden)
-        # dealer_total_count_str = (dealer_card_counter(dealer_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
-        # print ("Dealers count: " + dealer_total_count_str)
         print ("Dealers count: " + dealer_total_count_hiddenstr)
         print ("   Your Cards:" + users_cards)
-        #(user_card_counter(dealer_total_count_hiddenstr,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
         return (user_card_counter(dealer_total_count_hiddenstr,dealer_total_count_hiddenstr,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards))
     else: 
         y= input('\033[31m'+"You must enter H or S or Hit or Stay:"+'\033[0m')
-        hit_or_stay(user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards,y)
+        return hit_or_stay(dealer_total_count_hiddenstr,user_cards_with_suits,dealers_cards, dealers_cards_hidden,playing_deck,users_cards, y)
 
 #Variables w/ emojis and card symbols
 class color:
@@ -495,16 +489,10 @@ class color:
     Q = '♛'
     J= "Jack"
     A = "Ace"
-    # def shuffle_reshuffle(full_deck_of_cards,playing_deck):
-    #     if len(playing_deck) < 51:
-    #         for e in full_deck_of_cards:
-    #             playing_deck.append(e)
-    ###flipped_over_card = "🎚️" 
-    ###flipped_over_card = "🃟"
+    #other back of card options: flipped_over_card = "🎚️" and flipped_over_card = "🃟"
     flipped_over_card = "🃩"
     #lists function is to act as the deck but take out the cards the players are using
     playing_deck = []
-
     #Strings below function are to show user dealer and user cards
     dealers_cards_hidden = " "
     dealers_cards= " "
