@@ -299,7 +299,7 @@ def user_card_counter(dealer_total_count_hiddenstr,dealer_cards_with_suits_hidde
                     e = int(e)
                     user_total_count= user_total_count + e
                 return (did_user_bust(dealer_total_count_hiddenstr,user_total_count,dealers_cards, dealers_cards_hidden,playing_deck,users_cards,user_cards_with_suits))
-        elif e.find("A") !=-1:
+        elif e.find("A") !=-1: #B
             user_cards_without_suits.append(1)
             if len(user_cards_with_suits) ==  len(user_cards_without_suits):   
                 for e in user_cards_without_suits:
