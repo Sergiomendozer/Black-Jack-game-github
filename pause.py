@@ -1,4 +1,5 @@
 import time
+
 print("start")
-time.sleep(1) 
+time.sleep(1)
 print("end")
