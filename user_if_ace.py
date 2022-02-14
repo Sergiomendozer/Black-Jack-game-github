@@ -1,26 +1,69 @@
-# elif e.find(RED + "♥️" + END) != -1:
-#             spot = e.find(RED + "♥️" + END)
-#             e = e[:spot]
-#             user_cards_without_suits.append(e)
-#             if len(user_cards_with_suits) == len(user_cards_without_suits):
-#                 for e in user_cards_without_suits:
-#                     e = str(e)
-#                     str_to_find_ace = str_to_find_ace + e
-#                 (str_to_find_ace)
-#                 if str_to_find_ace.find("11") != -1:
-#                     is_there_an_ace = "YES"
-#                 else:
-#                     is_there_an_ace = "NO"
-#                 for e in user_cards_without_suits:
-#                     e = int(e)
-#                     user_total_count = user_total_count + e
-#                 return did_user_bust(
+# if is_there_an_ace == "NO":
+#         if user_total_count <= 21:
+#             user_total_count_str = str(user_total_count)
+#             print("Your count is: " + user_total_count_str)
+#             time.sleep(1)
+#             x = str(input("Hit(H) or Stay(S):"))
+#             return hit_or_stay(
+#                 dealer_total_count_hiddenstr,
+#                 user_cards_with_suits,
+#                 dealers_cards,
+#                 dealers_cards_hidden,
+#                 playing_deck,
+#                 users_cards,
+#                 x,
+#                 does_dealer_have_an_ace,
+#             )
+#         elif user_total_count > 21:
+#             user_total_count = str(user_total_count)
+#             print(
+#                 "   Your count: "
+#                 + user_total_count
+#                 + RED
+#                 + " which is over 21 so you bust, you lost"
+#                 + END
+#             )
+#             (play_again(playing_deck))
+#     elif is_there_an_ace == "YES":
+#         if user_total_count <= 21:
+#             user_total_count_str = str(user_total_count)
+#             print("Your count is: " + user_total_count_str)
+#             time.sleep(1)
+#             x = str(input("Hit(H) or Stay(S):"))
+#             return hit_or_stay(
+#                 dealer_total_count_hiddenstr,
+#                 user_cards_with_suits,
+#                 dealers_cards,
+#                 dealers_cards_hidden,
+#                 playing_deck,
+#                 users_cards,
+#                 x,
+#                 does_dealer_have_an_ace,
+#             )
+#         elif user_total_count > 21:
+#             user_total_count = user_total_count - 10
+#             if user_total_count <= 21:
+#                 user_total_count_str = str(user_total_count)
+#                 print("Your count is: " + user_total_count_str)
+#                 time.sleep(1)
+#                 x = str(input("Hit(H) or Stay(S):"))
+#                 return hit_or_stay(
 #                     dealer_total_count_hiddenstr,
-#                     user_total_count,
+#                     user_cards_with_suits,
 #                     dealers_cards,
 #                     dealers_cards_hidden,
 #                     playing_deck,
 #                     users_cards,
-#                     user_cards_with_suits,
-#                     is_there_an_ace,
+#                     x,
+#                     does_dealer_have_an_ace,
 #                 )
+#             else:
+#                 user_total_count = str(user_total_count)
+#                 print(
+#                     "   Your count: "
+#                     + user_total_count
+#                     + RED
+#                     + " which is over 21 so you bust, you lost"
+#                     + END
+#                 )
+#                 (play_again(playing_deck))
