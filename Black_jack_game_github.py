@@ -184,6 +184,7 @@ def play_again(playing_deck):
         dealers_cards_hidden,
         playing_deck,
         users_cards,
+        does_dealer_have_an_ace,
     )
 
 
@@ -386,6 +387,7 @@ def user_card_counter(
     dealers_cards_hidden,
     playing_deck,
     users_cards,
+    does_dealer_have_an_ace,
 ):
     user_cards_without_suits = []
     user_total_count = 0
@@ -414,6 +416,7 @@ def user_card_counter(
                     users_cards,
                     user_cards_with_suits,
                     is_there_an_ace,
+                    does_dealer_have_an_ace,
                 )
         elif e.find("♚") != -1:
             user_cards_without_suits.append(10)
@@ -438,6 +441,7 @@ def user_card_counter(
                     users_cards,
                     user_cards_with_suits,
                     is_there_an_ace,
+                    does_dealer_have_an_ace,
                 )
         elif e.find("J") != -1:
             user_cards_without_suits.append(10)
@@ -462,6 +466,7 @@ def user_card_counter(
                     users_cards,
                     user_cards_with_suits,
                     is_there_an_ace,
+                    does_dealer_have_an_ace,
                 )
         elif e.find("A") != -1:
             user_cards_without_suits.append(11)
@@ -486,6 +491,7 @@ def user_card_counter(
                     users_cards,
                     user_cards_with_suits,
                     is_there_an_ace,
+                    does_dealer_have_an_ace,
                 )
         elif e.find("♠️") != -1:
             spot = e.find("♠️")
@@ -512,6 +518,7 @@ def user_card_counter(
                     users_cards,
                     user_cards_with_suits,
                     is_there_an_ace,
+                    does_dealer_have_an_ace,
                 )
         elif e.find("♣️") != -1:
             spot = e.find("♣️")
@@ -538,6 +545,7 @@ def user_card_counter(
                     users_cards,
                     user_cards_with_suits,
                     is_there_an_ace,
+                    does_dealer_have_an_ace,
                 )
         elif e.find(RED + "♦️" + END) != -1:
             spot = e.find(RED + "♦️" + END)
@@ -564,6 +572,7 @@ def user_card_counter(
                     users_cards,
                     user_cards_with_suits,
                     is_there_an_ace,
+                    does_dealer_have_an_ace,
                 )
         elif e.find(RED + "♥️" + END) != -1:
             spot = e.find(RED + "♥️" + END)
@@ -590,6 +599,7 @@ def user_card_counter(
                     users_cards,
                     user_cards_with_suits,
                     is_there_an_ace,
+                    does_dealer_have_an_ace,
                 )
 
 
@@ -673,6 +683,7 @@ def did_user_bust(
     users_cards,
     user_cards_with_suits,
     is_there_an_ace,
+    does_dealer_have_an_ace,
 ):
     if is_there_an_ace == "NO":
         if user_total_count <= 21:
@@ -688,6 +699,7 @@ def did_user_bust(
                 playing_deck,
                 users_cards,
                 x,
+                does_dealer_have_an_ace,
             )
         elif user_total_count > 21:
             user_total_count = str(user_total_count)
@@ -713,6 +725,7 @@ def did_user_bust(
                 playing_deck,
                 users_cards,
                 x,
+                does_dealer_have_an_ace,
             )
         elif user_total_count > 21:
             user_total_count = user_total_count - 10
@@ -729,6 +742,7 @@ def did_user_bust(
                     playing_deck,
                     users_cards,
                     x,
+                    does_dealer_have_an_ace,
                 )
             else:
                 user_total_count = str(user_total_count)
@@ -749,6 +763,7 @@ def does_dealer_hit(
     dealers_cards_hidden,
     playing_deck,
     users_cards,
+    does_dealer_have_an_ace,
 ):
     dealer_total_count_str, does_dealer_have_an_ace = dealer_card_counter(
         dealer_cards_with_suits,
@@ -793,6 +808,7 @@ def does_dealer_hit(
             dealers_cards_hidden,
             playing_deck,
             users_cards,
+            does_dealer_have_an_ace,
         )
     else:
         print(Yellow + "Dealer Stays" + END)
@@ -842,6 +858,7 @@ def hit_or_stay(
     playing_deck,
     users_cards,
     x,
+    does_dealer_have_an_ace,
 ):
     if x == "s" or x == "S" or x == "Stay" or x == "Stay":
         return does_dealer_hit(
@@ -850,6 +867,7 @@ def hit_or_stay(
             dealers_cards_hidden,
             playing_deck,
             users_cards,
+            does_dealer_have_an_ace,
         )
     elif x == "H" or x == "h" or x == "Hit" or x == "hit":
         chosen_card = random.choice(playing_deck)
@@ -869,6 +887,7 @@ def hit_or_stay(
             dealers_cards_hidden,
             playing_deck,
             users_cards,
+            does_dealer_have_an_ace,
         )
     else:
         y = input("\033[31m" + "You must enter H or S or Hit or Stay:" + "\033[0m")
@@ -880,6 +899,7 @@ def hit_or_stay(
             playing_deck,
             users_cards,
             y,
+            does_dealer_have_an_ace,
         )
 
 
