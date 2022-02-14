@@ -203,19 +203,37 @@ def dealer_card_counter(
 ):
     dealer_cards_without_suits = []
     dealer_total_count = 0
+    str_to_find_ace = ""
     for e in dealer_cards_with_suits:
         if e.find("♛") != -1:
             dealer_cards_without_suits.append(10)
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
                     e = int(e)
+                    dealer_str_to_find_ace = dealer_str_to_find_ace + e
+                (dealer_str_to_find_ace)
+                if dealer_str_to_find_ace.find("11") != -1:
+                    does_dealer_have_an_ace = "YES"
+                else:
+                    does_dealer_have_an_ace = "NO"
+                for e in user_cards_without_suits:
+                    e = int(e)
                     dealer_total_count = dealer_total_count + e
                 dealer_total_count_str = str(dealer_total_count)
                 return dealer_total_count_str, does_dealer_have_an_ace
+                # * highlighted bookmark
         elif e.find("♚") != -1:
             dealer_cards_without_suits.append(10)
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
+                    e = int(e)
+                    dealer_str_to_find_ace = dealer_str_to_find_ace + e
+                (dealer_str_to_find_ace)
+                if dealer_str_to_find_ace.find("11") != -1:
+                    does_dealer_have_an_ace = "YES"
+                else:
+                    does_dealer_have_an_ace = "NO"
+                for e in user_cards_without_suits:
                     e = int(e)
                     dealer_total_count = dealer_total_count + e
                 dealer_total_count_str = str(dealer_total_count)
@@ -225,6 +243,14 @@ def dealer_card_counter(
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
                     e = int(e)
+                    dealer_str_to_find_ace = dealer_str_to_find_ace + e
+                (dealer_str_to_find_ace)
+                if dealer_str_to_find_ace.find("11") != -1:
+                    does_dealer_have_an_ace = "YES"
+                else:
+                    does_dealer_have_an_ace = "NO"
+                for e in user_cards_without_suits:
+                    e = int(e)
                     dealer_total_count = dealer_total_count + e
                 dealer_total_count_str = str(dealer_total_count)
                 return dealer_total_count_str, does_dealer_have_an_ace
@@ -232,6 +258,14 @@ def dealer_card_counter(
             dealer_cards_without_suits.append(1)
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
+                    e = int(e)
+                    dealer_str_to_find_ace = dealer_str_to_find_ace + e
+                (dealer_str_to_find_ace)
+                if dealer_str_to_find_ace.find("11") != -1:
+                    does_dealer_have_an_ace = "YES"
+                else:
+                    does_dealer_have_an_ace = "NO"
+                for e in user_cards_without_suits:
                     e = int(e)
                     dealer_total_count = dealer_total_count + e
                 dealer_total_count_str = str(dealer_total_count)
@@ -243,6 +277,14 @@ def dealer_card_counter(
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
                     e = int(e)
+                    dealer_str_to_find_ace = dealer_str_to_find_ace + e
+                (dealer_str_to_find_ace)
+                if dealer_str_to_find_ace.find("11") != -1:
+                    does_dealer_have_an_ace = "YES"
+                else:
+                    does_dealer_have_an_ace = "NO"
+                for e in user_cards_without_suits:
+                    e = int(e)
                     dealer_total_count = dealer_total_count + e
                 dealer_total_count_str = str(dealer_total_count)
                 return dealer_total_count_str, does_dealer_have_an_ace
@@ -252,6 +294,14 @@ def dealer_card_counter(
             dealer_cards_without_suits.append(e)
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
+                    e = int(e)
+                    dealer_str_to_find_ace = dealer_str_to_find_ace + e
+                (dealer_str_to_find_ace)
+                if dealer_str_to_find_ace.find("11") != -1:
+                    does_dealer_have_an_ace = "YES"
+                else:
+                    does_dealer_have_an_ace = "NO"
+                for e in user_cards_without_suits:
                     e = int(e)
                     dealer_total_count = dealer_total_count + e
                 dealer_total_count_str = str(dealer_total_count)
@@ -263,6 +313,14 @@ def dealer_card_counter(
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
                     e = int(e)
+                    dealer_str_to_find_ace = dealer_str_to_find_ace + e
+                (dealer_str_to_find_ace)
+                if dealer_str_to_find_ace.find("11") != -1:
+                    does_dealer_have_an_ace = "YES"
+                else:
+                    does_dealer_have_an_ace = "NO"
+                for e in user_cards_without_suits:
+                    e = int(e)
                     dealer_total_count = dealer_total_count + e
                 dealer_total_count_str = str(dealer_total_count)
                 return dealer_total_count_str, does_dealer_have_an_ace
@@ -272,6 +330,14 @@ def dealer_card_counter(
             dealer_cards_without_suits.append(e)
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
+                    e = int(e)
+                    dealer_str_to_find_ace = dealer_str_to_find_ace + e
+                (dealer_str_to_find_ace)
+                if dealer_str_to_find_ace.find("11") != -1:
+                    does_dealer_have_an_ace = "YES"
+                else:
+                    does_dealer_have_an_ace = "NO"
+                for e in user_cards_without_suits:
                     e = int(e)
                     dealer_total_count = dealer_total_count + e
                 dealer_total_count_str = str(dealer_total_count)
