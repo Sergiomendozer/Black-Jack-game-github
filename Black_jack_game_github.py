@@ -814,16 +814,15 @@ def does_dealer_hit(
         print(Yellow + "Dealer Stays" + END)
         time.sleep(1)
         print("Dealers Cards:" + dealers_cards)
-        dealer_total_count = int(
-            dealer_card_counter(
-                dealer_cards_with_suits,
-                dealers_cards,
-                dealers_cards_hidden,
-                playing_deck,
-                users_cards,
-                does_dealer_have_an_ace,
-            )
+        dealer_total_count, does_dealer_have_an_ace = dealer_card_counter(
+            dealer_cards_with_suits,
+            dealers_cards,
+            dealers_cards_hidden,
+            playing_deck,
+            users_cards,
+            does_dealer_have_an_ace,
         )
+        dealer_total_count = int(dealer_total_count)
         user_total_count = int(
             user_card_counter_2(
                 dealers_cards, dealers_cards_hidden, playing_deck, users_cards
@@ -1056,5 +1055,6 @@ class color:
             dealers_cards_hidden,
             playing_deck,
             users_cards,
+            does_dealer_have_an_ace,
         )
     )
