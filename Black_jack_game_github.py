@@ -276,7 +276,7 @@ def dealer_card_counter(
                     print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
         elif e.find("A") != -1:
-            dealer_cards_without_suits.append(1)
+            dealer_cards_without_suits.append(11)
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
                     e = str(e)
