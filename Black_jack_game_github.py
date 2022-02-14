@@ -203,7 +203,7 @@ def dealer_card_counter(
 ):
     dealer_cards_without_suits = []
     dealer_total_count = 0
-    str_to_find_ace = ""
+    dealer_str_to_find_ace = ""
     for e in dealer_cards_with_suits:
         if e.find("♛") != -1:
             dealer_cards_without_suits.append(10)
