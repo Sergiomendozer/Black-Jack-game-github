@@ -1,4 +1,3 @@
-# implement when ace is 11 or 1
 import time
 import random
 
@@ -202,7 +201,6 @@ def dealer_card_counter(
     users_cards,
     does_dealer_have_an_ace,
 ):
-    print(dealer_cards_with_suits)  # !delete
     dealer_cards_without_suits = []
     dealer_total_count = 0
     dealer_str_to_find_ace = ""
@@ -220,7 +218,6 @@ def dealer_card_counter(
                         e = int(e)
                         dealer_total_count = dealer_total_count + e
                     dealer_total_count_str = str(dealer_total_count)
-                    print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
                 else:
                     does_dealer_have_an_ace = "NO"
@@ -228,9 +225,8 @@ def dealer_card_counter(
                         e = int(e)
                         dealer_total_count = dealer_total_count + e
                     dealer_total_count_str = str(dealer_total_count)
-                    print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
-                # * highlighted bookmark
+
         elif e.find("♚") != -1:
             dealer_cards_without_suits.append(10)
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
@@ -244,7 +240,6 @@ def dealer_card_counter(
                         e = int(e)
                         dealer_total_count = dealer_total_count + e
                     dealer_total_count_str = str(dealer_total_count)
-                    print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
                 else:
                     does_dealer_have_an_ace = "NO"
@@ -252,7 +247,6 @@ def dealer_card_counter(
                         e = int(e)
                         dealer_total_count = dealer_total_count + e
                     dealer_total_count_str = str(dealer_total_count)
-                    print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
         elif e.find("J") != -1:
             dealer_cards_without_suits.append(10)
@@ -267,7 +261,6 @@ def dealer_card_counter(
                         e = int(e)
                         dealer_total_count = dealer_total_count + e
                     dealer_total_count_str = str(dealer_total_count)
-                    print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
                 else:
                     does_dealer_have_an_ace = "NO"
@@ -275,7 +268,6 @@ def dealer_card_counter(
                         e = int(e)
                         dealer_total_count = dealer_total_count + e
                     dealer_total_count_str = str(dealer_total_count)
-                    print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
         elif e.find("A") != -1:
             dealer_cards_without_suits.append(11)
@@ -290,7 +282,6 @@ def dealer_card_counter(
                         e = int(e)
                         dealer_total_count = dealer_total_count + e
                     dealer_total_count_str = str(dealer_total_count)
-                    print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
                 else:
                     does_dealer_have_an_ace = "NO"
@@ -298,7 +289,6 @@ def dealer_card_counter(
                         e = int(e)
                         dealer_total_count = dealer_total_count + e
                     dealer_total_count_str = str(dealer_total_count)
-                    print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
         elif e.find("♠️") != -1:
             spot = e.find("♠️")
@@ -315,7 +305,6 @@ def dealer_card_counter(
                         e = int(e)
                         dealer_total_count = dealer_total_count + e
                     dealer_total_count_str = str(dealer_total_count)
-                    print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
                 else:
                     does_dealer_have_an_ace = "NO"
@@ -323,7 +312,6 @@ def dealer_card_counter(
                         e = int(e)
                         dealer_total_count = dealer_total_count + e
                     dealer_total_count_str = str(dealer_total_count)
-                    print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
         elif e.find("♣️") != -1:
             spot = e.find("♣️")
@@ -340,7 +328,6 @@ def dealer_card_counter(
                         e = int(e)
                         dealer_total_count = dealer_total_count + e
                     dealer_total_count_str = str(dealer_total_count)
-                    print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
                 else:
                     does_dealer_have_an_ace = "NO"
@@ -348,7 +335,6 @@ def dealer_card_counter(
                         e = int(e)
                         dealer_total_count = dealer_total_count + e
                     dealer_total_count_str = str(dealer_total_count)
-                    print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
         elif e.find(RED + "♦️" + END) != -1:
             spot = e.find(RED + "♦️" + END)
@@ -365,7 +351,6 @@ def dealer_card_counter(
                         e = int(e)
                         dealer_total_count = dealer_total_count + e
                     dealer_total_count_str = str(dealer_total_count)
-                    print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
                 else:
                     does_dealer_have_an_ace = "NO"
@@ -373,7 +358,6 @@ def dealer_card_counter(
                         e = int(e)
                         dealer_total_count = dealer_total_count + e
                     dealer_total_count_str = str(dealer_total_count)
-                    print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
         elif e.find(RED + "♥️" + END) != -1:
             spot = e.find(RED + "♥️" + END)
@@ -390,7 +374,6 @@ def dealer_card_counter(
                         e = int(e)
                         dealer_total_count = dealer_total_count + e
                     dealer_total_count_str = str(dealer_total_count)
-                    print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
                 else:
                     does_dealer_have_an_ace = "NO"
@@ -398,7 +381,6 @@ def dealer_card_counter(
                         e = int(e)
                         dealer_total_count = dealer_total_count + e
                     dealer_total_count_str = str(dealer_total_count)
-                    print((dealer_total_count_str))  # !delete
                     return dealer_total_count_str, does_dealer_have_an_ace
 
 
@@ -902,11 +884,9 @@ def does_dealer_hit(
         users_cards,
         does_dealer_have_an_ace,
     )
-    print(("does_dealer_hitdef" + dealer_total_count_str))  # !delete
     dealer_total_count_int = int(dealer_total_count_str)
     print(Purple + "Dealer is now playing" + END)
     time.sleep(4)
-    print("ACE:" + does_dealer_have_an_ace)  # !delete
     if dealer_total_count_int <= 17:
         print(Cyan + "Dealer hit" + END)
         time.sleep(2)
@@ -1025,61 +1005,6 @@ def does_dealer_hit(
         elif user_total_count == dealer_total_count:
             print("You pushed")
             (play_again(playing_deck))
-
-    # else:
-    #     print(Yellow + "Dealer Stays" + END)
-    #     time.sleep(1)
-    #     print("Dealers Cards:" + dealers_cards)
-    #     dealer_total_count, does_dealer_have_an_ace = dealer_card_counter(
-    #         dealer_cards_with_suits,
-    #         dealers_cards,
-    #         dealers_cards_hidden,
-    #         playing_deck,
-    #         users_cards,
-    #         does_dealer_have_an_ace,
-    #     )
-    #     dealer_total_count = int(dealer_total_count)
-    #     user_total_count = int(
-    #         user_card_counter_2(
-    #             dealers_cards, dealers_cards_hidden, playing_deck, users_cards
-    #         )
-    #     )
-    #     if dealer_total_count_int > 21 and does_dealer_have_an_ace == "NO":
-    #         print("Dealers count: " + dealer_total_count_str)
-    #         time.sleep(1)
-    #         print("Dealer busted," + GREEN + "You win!" + END)
-    #         (play_again(playing_deck))
-    #     elif dealer_total_count > user_total_count:
-    #         print("Dealers count: " + dealer_total_count_str)
-    #         time.sleep(1)
-    #         print(BLUE + "Dealer wins" + END)
-    #         (play_again(playing_deck))
-    #     elif user_total_count > dealer_total_count:
-    #         print("Dealers count: " + dealer_total_count_str)
-    #         time.sleep(1)
-    #         print(GREEN + "You win!" + END)
-    #         (play_again(playing_deck))
-    #     elif user_total_count == dealer_total_count:
-    #         print("You pushed")
-    #         (play_again(playing_deck))
-    #     if dealer_total_count > 21 and does_dealer_have_an_ace == "NO":
-    #         print("Dealers count: " + dealer_total_count_str)
-    #         time.sleep(1)
-    #         print("Dealer busted," + GREEN + "You win!" + END)
-    #         (play_again(playing_deck))
-    #     elif dealer_total_count > user_total_count:
-    #         print("Dealers count: " + dealer_total_count_str)
-    #         time.sleep(1)
-    #         print(BLUE + "Dealer wins" + END)
-    #         (play_again(playing_deck))
-    #     elif user_total_count > dealer_total_count:
-    #         print("Dealers count: " + dealer_total_count_str)
-    #         time.sleep(1)
-    #         print(GREEN + "You win!" + END)
-    #         (play_again(playing_deck))
-    #     elif user_total_count == dealer_total_count:
-    #         print("You pushed")
-    #         (play_again(playing_deck))
 
 
 # function takes input of user to see if user wants to hit or stay
