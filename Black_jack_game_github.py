@@ -211,7 +211,6 @@ def dealer_card_counter(
                     e = int(e)
                     dealer_total_count = dealer_total_count + e
                 dealer_total_count_str = str(dealer_total_count)
-                print(does_dealer_have_an_ace)  # !delete
                 return dealer_total_count_str, does_dealer_have_an_ace
         elif e.find("♚") != -1:
             dealer_cards_without_suits.append(10)
@@ -220,7 +219,6 @@ def dealer_card_counter(
                     e = int(e)
                     dealer_total_count = dealer_total_count + e
                 dealer_total_count_str = str(dealer_total_count)
-                print(does_dealer_have_an_ace)  # !delete
                 return dealer_total_count_str, does_dealer_have_an_ace
         elif e.find("J") != -1:
             dealer_cards_without_suits.append(10)
@@ -229,7 +227,6 @@ def dealer_card_counter(
                     e = int(e)
                     dealer_total_count = dealer_total_count + e
                 dealer_total_count_str = str(dealer_total_count)
-                print(does_dealer_have_an_ace)  # !delete
                 return dealer_total_count_str, does_dealer_have_an_ace
         elif e.find("A") != -1:
             dealer_cards_without_suits.append(1)
@@ -238,7 +235,6 @@ def dealer_card_counter(
                     e = int(e)
                     dealer_total_count = dealer_total_count + e
                 dealer_total_count_str = str(dealer_total_count)
-                print(does_dealer_have_an_ace)  # !delete
                 return dealer_total_count_str, does_dealer_have_an_ace
         elif e.find("♠️") != -1:
             spot = e.find("♠️")
@@ -249,7 +245,6 @@ def dealer_card_counter(
                     e = int(e)
                     dealer_total_count = dealer_total_count + e
                 dealer_total_count_str = str(dealer_total_count)
-                print(does_dealer_have_an_ace)  # !delete
                 return dealer_total_count_str, does_dealer_have_an_ace
         elif e.find("♣️") != -1:
             spot = e.find("♣️")
@@ -260,7 +255,6 @@ def dealer_card_counter(
                     e = int(e)
                     dealer_total_count = dealer_total_count + e
                 dealer_total_count_str = str(dealer_total_count)
-                print(does_dealer_have_an_ace)  # !delete
                 return dealer_total_count_str, does_dealer_have_an_ace
         elif e.find(RED + "♦️" + END) != -1:
             spot = e.find(RED + "♦️" + END)
@@ -271,7 +265,6 @@ def dealer_card_counter(
                     e = int(e)
                     dealer_total_count = dealer_total_count + e
                 dealer_total_count_str = str(dealer_total_count)
-                print(does_dealer_have_an_ace)  # !delete
                 return dealer_total_count_str, does_dealer_have_an_ace
         elif e.find(RED + "♥️" + END) != -1:
             spot = e.find(RED + "♥️" + END)
@@ -282,7 +275,6 @@ def dealer_card_counter(
                     e = int(e)
                     dealer_total_count = dealer_total_count + e
                 dealer_total_count_str = str(dealer_total_count)
-                print(does_dealer_have_an_ace)  # !delete
                 return dealer_total_count_str, does_dealer_have_an_ace
 
 
@@ -391,7 +383,7 @@ def user_card_counter(
 ):
     user_cards_without_suits = []
     user_total_count = 0
-    str_to_find_ace = ""  ###
+    str_to_find_ace = ""
     for e in user_cards_with_suits:
         if e.find("♛") != -1:
             user_cards_without_suits.append(10)
@@ -922,7 +914,7 @@ class color:
     dealers_cards_hidden = " "
     dealers_cards = " "
     users_cards = " "
-    does_dealer_have_an_ace = "test"
+    does_dealer_have_an_ace = ""
     dealer_cards_with_suits_hidden = []
     # the list is a regular full deck of cards
     full_deck_of_cards = [
