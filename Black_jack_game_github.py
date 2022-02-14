@@ -209,7 +209,7 @@ def dealer_card_counter(
             dealer_cards_without_suits.append(10)
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
-                    e = int(e)
+                    e = str(e)
                     dealer_str_to_find_ace = dealer_str_to_find_ace + e
                 (dealer_str_to_find_ace)
                 if dealer_str_to_find_ace.find("11") != -1:
@@ -226,7 +226,7 @@ def dealer_card_counter(
             dealer_cards_without_suits.append(10)
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
-                    e = int(e)
+                    e = str(e)
                     dealer_str_to_find_ace = dealer_str_to_find_ace + e
                 (dealer_str_to_find_ace)
                 if dealer_str_to_find_ace.find("11") != -1:
@@ -242,7 +242,7 @@ def dealer_card_counter(
             dealer_cards_without_suits.append(10)
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
-                    e = int(e)
+                    e = str(e)
                     dealer_str_to_find_ace = dealer_str_to_find_ace + e
                 (dealer_str_to_find_ace)
                 if dealer_str_to_find_ace.find("11") != -1:
@@ -258,7 +258,7 @@ def dealer_card_counter(
             dealer_cards_without_suits.append(1)
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
-                    e = int(e)
+                    e = str(e)
                     dealer_str_to_find_ace = dealer_str_to_find_ace + e
                 (dealer_str_to_find_ace)
                 if dealer_str_to_find_ace.find("11") != -1:
@@ -276,7 +276,7 @@ def dealer_card_counter(
             dealer_cards_without_suits.append(e)
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
-                    e = int(e)
+                    e = str(e)
                     dealer_str_to_find_ace = dealer_str_to_find_ace + e
                 (dealer_str_to_find_ace)
                 if dealer_str_to_find_ace.find("11") != -1:
@@ -294,7 +294,7 @@ def dealer_card_counter(
             dealer_cards_without_suits.append(e)
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
-                    e = int(e)
+                    e = str(e)
                     dealer_str_to_find_ace = dealer_str_to_find_ace + e
                 (dealer_str_to_find_ace)
                 if dealer_str_to_find_ace.find("11") != -1:
@@ -312,7 +312,7 @@ def dealer_card_counter(
             dealer_cards_without_suits.append(e)
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
-                    e = int(e)
+                    e = str(e)
                     dealer_str_to_find_ace = dealer_str_to_find_ace + e
                 (dealer_str_to_find_ace)
                 if dealer_str_to_find_ace.find("11") != -1:
@@ -330,7 +330,7 @@ def dealer_card_counter(
             dealer_cards_without_suits.append(e)
             if len(dealer_cards_with_suits) == len(dealer_cards_without_suits):
                 for e in dealer_cards_without_suits:
-                    e = int(e)
+                    e = str(e)
                     dealer_str_to_find_ace = dealer_str_to_find_ace + e
                 (dealer_str_to_find_ace)
                 if dealer_str_to_find_ace.find("11") != -1:
